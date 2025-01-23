@@ -726,6 +726,7 @@ const students = [
   
   // Function to filter by role and then sort alphabetically by name
   let isFiltered = false; // To track if the filter is applied
+let lastClickedRole = null; // To track the last clicked role button
 
 function filterByRole(role) {
   const photoGrid = document.getElementById("photoGrid");
@@ -749,6 +750,7 @@ function filterByRole(role) {
     }
   });
 
+  // If it's a new role filter, apply filtering logic
   if (role !== lastClickedRole) {
     // Filter and sort by role
     matchingContainers.sort((a, b) => {
@@ -768,8 +770,9 @@ function filterByRole(role) {
 
     // Mark filter as applied
     isFiltered = true;
+    lastClickedRole = role; // Update the last clicked role
   } else {
-    // If the filter is already applied, just sort the grid alphabetically
+    // If the same button is clicked again, just sort alphabetically
     const allContainers = [...matchingContainers, ...otherContainers];
 
     // Sort the entire grid alphabetically by name (based on the alt attribute of the image)
@@ -785,15 +788,17 @@ function filterByRole(role) {
       photoGrid.appendChild(container);
     });
 
-    // Remove the 'dim' and 'highlight' classes and ensure all elements are restored to original state
+    // Remove the 'dim' and 'highlight' classes to restore original state
     allContainers.forEach((container) => {
       container.classList.remove("dim", "highlight");
     });
 
-    // Mark filter as toggled (completed) and reset to no filter
+    // Reset the filter state
     isFiltered = false;
+    lastClickedRole = null; // Reset last clicked role
   }
 }
+
 
 
  const carousel = document.getElementById('carousel');
