@@ -1,0 +1,290 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Ensure the body and html take the full height of the viewport */
+  overflow: hidden; /* Prevent scrolling */
+}
+
+.container {
+  text-align: center;
+  color: white;
+  position: relative;
+  height: 100%; /* Matches the height of the parent (html/body) */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically */
+}
+
+.background {
+  position: absolute;
+  pointer-events: auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center top, rgba(15,150,144,1) 0%, rgba(13,128,123,1) 14%, rgba(12,110,107,1) 25%, rgba(10,84,84,1) 41%, rgba(8,55,57,1) 59%, rgba(7,39,42,1) 69%, rgba(5,22,26,1) 80%);
+  z-index: -1; /* Keeps the background behind the text */
+}
+
+.year1, .year2, .year3 {
+  font-stretch: extra-expanded;
+  font-size: 260px;
+  font-weight: 800;
+  margin: 0;
+  padding: 0;
+  line-height: 80%;
+  opacity: 7%;
+  transform: rotate(-2deg);
+  font-style: italic;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  letter-spacing: -20px;
+}
+
+.year2 {
+  color: transparent; /* Makes the text transparent */
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.7); /* White outline with transparency */
+  stroke: 1px rgba(255, 255, 255, 0.7); /* For non-webkit browsers */
+  opacity: 28%;
+  transform: rotate(4deg);
+}
+
+@import url(https://db.onlinewebfonts.com/c/db0603146267fd97cb357d5c2807c44a?family=Shadow+of+the+deads); 
+
+.S {
+  position: absolute; /* Absolute positioning for fine control */
+  top: 19%; /* Center vertically */
+  left: 35%; /* Adjust horizontally based on design */
+  transform: translate(-50%, -50%); /* Center it exactly */
+  font-size: 120px; /* Large font size */
+  font-weight: bold; /* Bold text for prominence */
+  color: transparent; /* Light text color */
+  text-shadow: 1px 1px 1px rgb(233, 225, 0); /* Red glow */
+  z-index: 2; /* Ensure it appears above the background */
+  -webkit-text-stroke: .5px rgb(233, 225, 0, 1);
+  font-style: italic;
+  font-family: Shadow of the deads;
+  }
+
+.SS{
+  position: absolute; /* Absolute positioning for fine control */
+  top: 22%; /* Center vertically */
+  bottom:20%;
+  left: 35.5%; /* Adjust horizontally based on design */
+  transform: translate(-50%, -50%); /* Center it exactly */
+  font-size: 120px; /* Large font size */
+  font-weight: bold; /* Bold text for prominence */
+  color: transparent; /* Light text color */
+  text-shadow: 1px 1px 1px rgb(0, 0, 0); /* Red glow */
+  z-index: 2; /* Ensure it appears above the background */
+  -webkit-text-stroke: .5px rgb(0, 0, 0);
+  font-style: italic;
+  font-family: Shadow of the deads;
+  opacity: 40%;
+}
+
+.C,.H,.W,.A,.N{
+  position: absolute;
+  top: 20%;
+  left: 43.3%;
+  transform: translate(-50%, -50%);
+  font-size: 130px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.9);
+  z-index: 1;
+  letter-spacing: -3px;
+  text-shadow: 15px 15px 15px rgba(0, 0, 0, 1) ; /* Bright cyan shadow */
+  font-family: bahnschrift;
+}
+.H{
+  left: 49%;
+  z-index: 2;
+}
+.W{
+  left: 56%;
+  z-index: 2;
+}
+.A{
+  left: 62.3%;
+  z-index: 2;
+}.N{
+  left: 68.2%;
+  z-index: 2;
+}
+.TECH{
+  position: absolute;
+  font-size: 33px;
+  color: rgb(255, 255, 255);
+  z-index:2;
+  transform: translateX(-50%);
+  top: 37%;
+  left:57%;
+  letter-spacing: 72px;
+  font-family: bahnschrift;
+}
+.point{
+  position:absolute;
+  font-style: italic;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 32px;
+  top: 30%;
+  left:72%;
+  color: rgb(233, 225, 0);
+  text-shadow: 10px 10px 10px black ;
+
+}
+
+.Hackathon{
+  position:absolute;
+  font-size: 24px;
+  top:16%; 
+  font-weight: 400px;
+  font-family: bahnschrift;
+  bottom: 52%;
+  right:36%;
+  letter-spacing: 14px;
+  font-style: italic;
+  color: rgb(35, 66, 49);
+}
+
+.open {
+  height: 60px;
+  width: 450px;
+  position: absolute;
+  left: 51%;
+  bottom: 11%;
+  transform: translateX(-50%);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 50px;
+  color: #fff;
+  font-style: italic;
+  background-color: rgba(15, 150, 144, 1);
+  border: solid rgba(15, 150, 144, 1);
+  text-transform: uppercase;
+  text-shadow: 0 0 2px #0ff, 0 0 4px #00ffff;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  border-radius: 40px;
+  box-shadow: 0 0 8px #00ffff, 0 0 15px #00ffff;
+  letter-spacing: 15px;
+  transform-origin: center;
+}
+
+.open.burst {
+  animation: inflate 3s ease-in-out forwards; /* Apply the animation */
+  pointer-events: none; /* Disable further clicks during animation */
+}
+
+.open:hover {
+  color: rgb(0, 0, 0);
+  background-color: rgba(15, 150, 144, 1);
+  box-shadow: 0 0 12px rgba(15, 150, 144, 0.8), 0 0 30px rgba(15, 150, 144, 1);
+}
+
+.date{
+  position: absolute;
+  left:51%; /* Center horizontally */
+  bottom: 0%;
+  transform: translateX(-50%);
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-style: italic;
+  letter-spacing: 7px;
+  font-size: 25px;
+  word-spacing: 14px;
+  color: rgb(255, 255, 255);
+}
+
+img {
+  position: absolute;
+  top: 1%; /* Aligns the image to the top */
+  left: 1%; /* Aligns the image to the left */
+  opacity: 90%; /* Adjusts transparency */
+  width: 50px; /* Set the desired width */
+  height: auto; /* Maintains the aspect ratio */
+}
+/* Centering the container for the countdown */
+
+/* Styling for the countdown container */
+.time-container {
+  display: flex;
+  gap: 50px; /* Adjusts spacing between time boxes */
+  justify-content: center; /* Centers the time boxes */
+  position: absolute;
+  left: 36%;
+  align-items: center;
+  bottom: 38%; /* Adjusts position relative to the container */
+}
+
+/* Styling for each time box (days, hours, minutes, seconds) */
+.time-box {
+  position: relative;
+  bottom: 40%;
+  top:50px;
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  width: 35px;
+  height: 40px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 1); /* Adds spacing below the time box */
+}
+
+/* Countdown numbers styling */
+.time-box div:first-child {
+  font-size: 40px; /* Larger font size for the countdown numbers */
+  font-family: "DS-Digital", sans-serif;
+  color: #00ffff; /* Cyan color */
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/* Styling for the labels below each countdown number */
+.time-label {
+  position: absolute;
+  bottom: -40px; /* Places the label below the time box */
+  left: 50%; /* Centers the label horizontally within the time box */
+  transform: translateX(-50%); /* Adjusts for perfect centering */
+  font-size: 18px; /* Smaller font size for labels */
+  color: rgb(240, 243, 157); /* White color for the labels */
+  text-transform: uppercase;
+  font-weight: normal;
+  font-family: "DS-Digital", sans-serif; /* Readable font for labels */
+  letter-spacing: 1px;
+  margin: 0; /* Removes default margin */
+}
+
+
+/* Styling for the countdown */
+.countdown {
+  font-size: 45px;
+  font-family: "DS-Digital";
+  color: white;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 1), 0 0 20px rgba(0, 255, 255, 0.8);
+  margin-top: 20px;
+  word-spacing: 0px;
+}
+
+.ripple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background-color: black;
+  transform: translate(-50%, -50%);
+  animation: ripple 1.5s forwards;
+}
+
+@keyframes ripple {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  100% {
+    width: 200%;
+    height: 200%;
+  }
+}
+
+

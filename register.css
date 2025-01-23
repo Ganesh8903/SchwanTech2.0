@@ -1,0 +1,918 @@
+html, body {
+    margin: 0;
+    top: 0;
+    left: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center top, rgba(15,150,144,1) 0%, rgba(13,128,123,1) 14%, rgba(12,110,107,1) 25%, rgba(10,84,84,1) 41%, rgba(8,55,57,1) 59%, rgba(7,39,42,1) 69%, rgba(5,22,26,1) 80%);    
+    background-attachment: fixed;
+} 
+
+/* Star logic */
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; 
+  z-index:0 ;
+}
+
+
+.star {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6em;
+  height: 2px;
+  background: linear-gradient(45deg, white, transparent);
+  filter: drop-shadow(0 0 6px white);
+  animation: fall 9s linear infinite, tail-fade 9s ease-out infinite;
+  transform: rotate(-45deg);
+}
+
+/* For Mobile Performance */
+@media screen and (max-width: 750px) {
+  .star {
+    animation: fall 9s linear infinite;
+  }
+}
+
+@keyframes fall {
+  to {
+    transform: translate3d(-100vw, 100vh, 0) rotate(-45deg); /* Falling from top-right to bottom-left */
+  }
+}
+
+@keyframes tail-fade {
+  0%, 50% {
+    opacity: 1;
+  }
+  70%, 80% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Header Section */
+header.header {
+    background: transparent;
+    padding: 20px 0;    
+    text-align: center;
+    position: fixed; /* Makes the header sticky */
+    top: 0; /* Stick to the top */
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensure the header stays on top of other content */
+}
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: transparent;
+    padding: 5px 0px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.logo {
+  height: 50px; /* Adjust as needed */
+  width: 300px; /* Set desired width */
+  height: 300px; /* Set desired height */
+  position: absolute;
+  top: -95px; /* Distance from the top */
+  left: -55px; /* Distance from the left */
+}
+
+.logo {
+  transition: opacity 0.1 ease-in 0.5 ease-out; /* Faster transition (0.2 seconds) */
+  opacity: 1;
+  visibility: visible;
+}
+
+    .navbar .menu {
+        padding-top: 10px;
+        display: flex;
+        gap: 20px;
+        font-size: 17px;
+    }
+
+    .navbar a {
+        color: rgb(0, 255, 242);
+        text-decoration: none;
+        padding: 8px 15px;
+    }
+
+    .navbar a:hover {
+        color: #ffffff;
+        text-shadow:0 0 10px rgba(0, 255, 255, 0.8),
+        0 0 20px rgba(0, 255, 255, 0.6),
+        0 0 30px rgba(0, 255, 255, 0.5),
+        0 0 40px rgba(0, 255, 255, 0.4); ;
+        border-radius: 4px;
+    }
+
+    .navbar a.active {
+        color: #ffffff;  /* Active link color */
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.8),
+                     0 0 20px rgba(0, 255, 255, 0.6),
+                     0 0 30px rgba(0, 255, 255, 0.5),
+                     0 0 40px rgba(0, 255, 255, 0.4); /* Glow effect */
+        border-radius: 4px; /* Optional: Add a rounded border for better visual feedback */
+    }
+
+    .navbar .menu {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+/* Header Department Section */
+.department-section {
+    position: absolute;
+    top: 10px; /* Start from the top */
+    left: 10px; /* Start from the left */
+    text-align: left;
+}
+
+/* Corrected positioning of department-name and department-bme */
+.department-name {
+    font-size: 35px;
+    font-family: "Anton", sans-serif;
+    color: #ffffff;
+    position: absolute;
+    bottom: -61%;
+    left: 5%;
+    margin: 0%; /* Remove any default margin */
+    padding: 0%; /* Remove any padding */
+}
+
+.department-bme {
+    font-size: 50px;
+    font-family: "Anton", sans-serif;
+    font-stretch: extra-condensed;
+    color: #efb61c;
+    letter-spacing: 5px;
+    font-style: italic;
+    position: relative;
+    left: 15%;
+    margin: -10%; 
+    padding: 0%; 
+}
+
+section {
+    min-height: 100vh; /* Allows the section to expand based on content */
+    width: 100%;
+    padding: 10rem 9% 2rem;/* Adjust padding as needed */
+    box-sizing: border-box; /* Includes padding in the element's total width and height */
+  }
+  
+  header.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: transparent; /* Adjust as needed */
+    transition: background 0.3s ease;
+}
+
+section.show-animate {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.5s ease;
+}
+
+
+/* Home Section */
+
+@import url('https://db.onlinewebfonts.com/c/db0603146267fd97cb357d5c2807c44a?family=Shadow+of+the+deads'); 
+.home-section {
+    position: relative;
+    padding: 50px 0;
+    width: 100%;
+    top:-5%;
+    margin-bottom: -10%;
+    min-height: 100vh; /* Full screen height */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center the content vertically and horizontally */
+    color: white;
+    text-align: center;
+    z-index: 0;
+    margin-top: 50px;
+    margin-bottom: -100px;
+}
+
+/* Specific styles for each letter */
+.S, .SS, .C, .H, .W, .A, .N {
+    position: absolute;
+    top: 10%;
+    left: 43.3%;
+    transform: translate(-50%, -50%);
+    font-size: 85px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.9);
+    z-index: 1;
+    letter-spacing: -3px;
+    text-shadow: 15px 15px 15px rgba(0, 0, 0, 1); /* Bright cyan shadow */
+    font-family: bahnschrift;
+}
+
+.S {
+    top: 7%;
+    left: 36.8%;
+    font-size: 90px;
+    color: transparent;
+    text-shadow: 1px 1px 1px #efb61c;; /* Red glow */
+    -webkit-text-stroke: .5px #efb61c;;
+    font-family: 'Shadow of the deads';
+    font-style: italic;
+}
+
+.SS {
+    left: 37.5%;
+    font-size: 90px;
+    color: transparent;
+    text-shadow: 1px 1px 1px rgb(0, 0, 0); /* Black glow */
+    -webkit-text-stroke: .5px rgb(0, 0, 0);
+    font-family: 'Shadow of the deads';
+    opacity: 40%;
+}
+
+.H {
+    left: 47%;
+    z-index: 2;
+}
+
+.W {
+    left: 51.5%;
+    z-index: 2;
+}
+
+.A {
+    left: 55.3%;
+    z-index: 2;
+}
+
+.N {
+    left: 59.2%;
+    z-index: 2;
+}
+
+/* TECH text styling */
+.TECH {
+    position: absolute;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    z-index: 2;
+    transform: translate(-50%, -50%);
+    bottom: 65%;
+    right: 32%;
+    letter-spacing: 44px;
+    font-family: bahnschrift;
+}
+
+/* Point number styling */
+.point {
+    position: absolute;
+    font-style: italic;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 32px;
+    bottom: 73%;
+    right: 34.8%;
+    color: #efb61c;
+    text-shadow: 10px 10px 10px black;
+}
+
+/* Welcome text styling */
+.welcome {
+    position: absolute;
+    font-size: 18px;
+    top: 5%;
+    font-weight: 400;
+    font-family: "Segoe Script";
+    bottom: 52%;
+    right: 39%;
+    letter-spacing: 14px;
+    font-style: italic;
+    color: rgb(255, 255, 255);
+}
+
+.announcement {
+    top: 39%;
+    left: 16%;
+    padding: 15px 20px;
+    position: absolute;
+    width: 1000px;
+    height: 270px;
+    background-color: transparent;
+    border: 1px solid rgb(255, 255, 255);
+    font-size: 20px;
+    border-radius: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align content at the top */
+    align-items: center;
+    box-shadow: 
+        0 0 10px rgba(0, 255, 255, 0.8),
+        0 0 20px rgba(0, 255, 255, 0.6),
+        0 0 30px rgba(0, 255, 255, 0.5),
+        0 0 40px rgba(0, 255, 255, 0.4); /* Neon glow effect */
+    transition: box-shadow 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.announcement .announcement-title {
+    position: sticky; /* Keeps the title fixed at the top */
+    top: 0;
+    width: 80%;
+    text-align: center;
+    letter-spacing: 2px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #efb61c;
+    background-color: transparent; /* Prevent overlap color issues */
+    z-index: 1; /* Ensures it stays on top of scrolling content */
+    padding: 3px 0;
+    font-size: 24px;
+}
+
+.announcement ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: calc(100% - 20px); /* Adjust height so list items fit */
+    overflow: hidden; /* Hides content outside the box */
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse; /* Start from the bottom */
+}
+
+.announcement ul li {
+    font-size: 20px;
+    color: #ffffff;
+    margin: 10px 0; 
+    white-space: nowrap;
+    text-align: center;
+    position: relative; 
+    width: 100%; /* Ensure list items take up the full width */
+    animation: scroll-up 6s linear infinite; /* Slow down the scroll animation */
+}
+
+/* Scroll-up animation for list items */
+@keyframes scroll-up {
+    0% {
+        transform: translateY(100%); /* Start from bottom */
+    }
+    100% {
+        transform: translateY(-100%); /* Move completely out of view at the top */
+    }
+}
+
+/* About-section */
+
+.about-section {
+  position: relative;
+  text-align: center;
+  top: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.promo {
+color: #efb61c;
+  margin-top: 0%;
+  bottom: 20%;
+  top: 20%;
+  left: 0;
+  padding-top: -20;
+  padding-bottom: -20;
+  margin: 0;
+  font-family: "Anton", sans-serif;
+  font-style: italic;
+  letter-spacing: 1px;
+  font-size: 80px;
+  text-shadow: 5px 5px 8px rgba(5, 22, 26, 1);
+  animation: floatText 4s infinite ease-in-out; /* Apply animation */
+  font-stretch: wider;
+}
+
+.carousel {
+
+left: 0;
+padding: 0;
+margin: 0;
+position: relative;
+width: 1500px;
+height: 40vw;
+perspective: 900px;
+display: flex; /* Flexbox for alignment */
+justify-content: center; /* Horizontal alignment */
+align-items: center; /* Vertical alignment */
+margin: 0 auto; /* Center the carousel itself in its parent container */
+overflow: hidden; /* Prevent any content from spilling out */
+}
+
+.carousel-container {
+width: 500px;
+height: 1000px;
+display: flex;
+justify-content: center; /* Center items horizontally */
+align-items: center; /* Center items vertically */
+position: absolute;
+/* transform-style:preserve-3d; */
+}
+
+.carousel-container img {
+  position: absolute;
+  width: 1300px;
+  height: 300px;
+  border-radius: 90px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transform-origin: center;
+  backface-visibility: hidden;
+  transition: transform 0.5s, width 0.5s, height 0.5s;
+  z-index: 2;
+  opacity: 50%;
+}
+
+.carousel-container img.active {
+border: 2px solid rgba(255, 255, 255, 0.8);
+border-radius: 100px;
+width: 900px;
+height: 400px;
+z-index: 20;
+opacity: 100;
+box-shadow: 
+0 0 10px rgba(0, 255, 255, 0.8),
+0 0 20px rgba(0, 255, 255, 0.6),
+0 0 30px rgba(0, 255, 255, 0.5),
+0 0 40px rgba(0, 255, 255, 0.4); 
+transition: box-shadow 0.9s ease-in-out;
+}
+
+/* Positioning each image in the 3D space */
+.carousel-container img:nth-child(1) {
+transform: rotateY(0deg) translateZ(500px); /* Increase Z distance */
+}
+
+.carousel-container img:nth-child(2) {
+transform: rotateY(60deg) translateZ(400px);
+}
+
+.carousel-container img:nth-child(3) {
+transform: rotateY(120deg) translateZ(300px);
+}
+
+.carousel-container img:nth-child(4) {
+transform: rotateY(180deg) translateZ(200px);
+}
+
+.carousel-container img:nth-child(5) {
+transform: rotateY(240deg) translateZ(300px);
+}
+
+.carousel-container img:nth-child(6) {
+transform: rotateY(300deg) translateZ(400px);
+}
+
+.carousel {
+  cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 100px;
+  border: 2px solid white;
+  box-shadow: 
+  0 0 10px rgba(0, 255, 255, 0.8),
+  0 0 20px rgba(0, 255, 255, 0.6),
+  0 0 30px rgba(0, 255, 255, 0.5),
+  0 0 40px rgba(0, 255, 255, 0.4); 
+  transition: box-shadow 0.9s ease-in-out;
+}
+
+.overlay.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.blurred {
+  filter: blur(50px);
+}
+
+/* Schedule Section */
+.schedule-box {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next row */
+  gap: 15px;
+}
+
+.schedule-item {
+  flex: 0 0 calc(14.2857% - 10px); /* 100% / 6 - margin */
+  top: 25%;
+  margin: 5px; 
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  height: 250px; 
+  border-radius: 40px;
+  /* Include padding and border in width calculation */
+}
+
+/* Regsiter section */
+.register-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  padding-top: 20%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  margin-top: 400px ;
+}
+
+.thought{
+  position:absolute;
+  top:-53%;
+  color: #ffcc00;
+  font-family: "Anton", sans-serif;
+  font-style: italic;
+  font-size: 60px;
+  text-shadow: 5px 5px 8px rgba(5, 22, 26, 1);
+  animation: floatText 4s infinite ease-in-out; 
+}
+
+.hand{
+  position:absolute;
+  align-items: center;
+  height: auto;
+  bottom: 20%;
+  width: 400px;
+  filter: grayscale(100%);
+  filter: invert(100%);
+}
+
+.domains-container {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: 10px;
+  display: flex;
+  justify-content: center;
+  word-spacing: 3px;
+  align-items: center;
+  top: -10%;
+  gap: 200px;
+  position: relative;
+}
+
+.domain-box {
+  position: relative;
+  width: 60%;
+  top: 80;
+  bottom: 20%;
+  background-color: #000000;
+  border-radius: 15px;
+  padding: 20px;
+  color: #ffcc00;
+  border: 1px solid #00d4d4;
+  text-align: left;
+  font-size: 18px;
+  height: auto;
+  min-height: 350px;
+  box-shadow:0 0 10px rgba(0, 255, 255, 0.8),
+  0 0 20px rgba(0, 255, 255, 0.6),
+  0 0 30px rgba(0, 255, 255, 0.5),
+  0 0 40px rgba(0, 255, 255, 0.4) ;
+}
+
+.domain-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.domain-box ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.domain-box li {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+}
+
+.register-btn {
+  position: relative;
+  bottom: 60px;
+  margin-top: 1px;
+  font-size: 30px;
+  width: 250px;
+  font-family: "Anton", sans-serif;
+  font-weight: bold;
+  font-style: italic;
+  color: #000000;
+  background-color: #00d4d4;
+  border: none;
+  border-radius: 35px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 3px;
+}
+
+.register-btn:hover {
+  background-color: #000000;
+  color: #00d4d4 ;
+  box-shadow:0 0 10px rgba(0, 255, 255, 0.8),
+  0 0 20px rgba(0, 255, 255, 0.6),
+  0 0 30px rgba(0, 255, 255, 0.5),
+  0 0 40px rgba(0, 255, 255, 0.4) ;
+}
+
+#bottom {
+  position: absolute;
+  bottom: 10px; /* Adjust as needed to move it closer to the bottom */
+  left: 10px; /* Adjust as needed to move it closer to the left */
+  font-size: 18px;
+  color: #00d4d4;
+  margin-top: -20%;
+}
+
+/* Contact Section */
+.contact-section {
+    position: relative;
+    padding-top: 15%;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    text-align: center;
+    z-index: -1;
+}
+  
+/* Title */
+.title {
+    position: absolute; /* Precisely position the title */
+    top: -1%;
+    left: 30%; /* Center horizontally */
+    transform: translateX(-50%); /* Ensure perfect centering */
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: italic;
+    color: #efb61c;
+    font-size: 60px;
+    letter-spacing: 4px;
+    text-shadow: 5px 5px 8px rgba(5, 22, 26, 1); /* Fix typo in 'rgba' */
+    animation: floatText 3s infinite ease-in-out; /* Apply animation */
+}
+
+/* Button Grid */
+.button-grid {
+    flex: 1 ;
+    top: -15%;
+    max-width: 300px;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 40px;
+    margin: 10px auto; /* Add space after the title */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Neon Button */
+.neon-btn {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 16px;
+    padding: 40px;
+    background: #05161a;
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+    border-radius: 20px;
+    transition: all 0.3s ease; /* Smooth transition for background, box-shadow */
+}
+
+/* Hover effect */
+.neon-btn:hover {
+    background-color: rgba(15, 150, 144, 1);
+    color: rgb(5, 22, 26);
+    font-weight: bold;
+    box-shadow: 0 0 10px 2px #ffffff; /* Cyan box-shadow */
+    transform: scale(1.1); /* Slight scale effect */
+}
+
+/* Active (Click) effect */
+.neon-btn:active {
+    color: #05161a;
+    font-weight: bold;
+    background: rgba(15, 150, 144, 1); /* Darker green on click */
+    box-shadow: 0 0 20px 4px #ffffff; /* Stronger cyan box-shadow on click */
+    transform: scale(0.95); /* Slight shrinking effect */
+}
+
+/* Photo Grid */
+.photo-grid {
+    top: -20%;
+    flex: 3;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 images per row */
+    gap: 15px; /* Space between images */
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto; /* Space between button grid and photo grid */
+    padding: 20px;
+    z-index: 0; /* Ensure it appears below the title and buttons */
+}
+
+/* Photo Container */
+.photo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px; /* Adjust as needed */
+    height: 240px; /* Adjust as needed */
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, background-color 0.3s ease;
+    border: 2px solid cyan; /* Add border to each photo container */
+    border-radius: 25px; /* Optional rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
+    transition: transform 0.5s ease;
+}
+
+/* Photo Inside Container */
+.photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px; /* Optional rounded corners */
+}
+
+  
+  .photo-container.dim {
+    opacity: 0.4; /* Reduced opacity for non-matching roles */
+  
+  }
+  
+  .photo-container:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    z-index: 1;
+    border-color: #ffffff;
+    box-shadow: 0px 0px 20px 10px rgba(20, 199, 206, 1); /* Increased intensity */
+  }
+  
+  .photo-container.highlight {
+    transform: scale(1.1); /* Larger zoom effect for matching roles */
+    border-color: #ffffff;
+    box-shadow: 0px 0px 20px 10px rgba(20, 199, 206, 1); /* Increased intensity */
+ }  
+
+  /* Modal Styling */
+  /* Modal container */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 45%;
+    width: 500px;
+    height: 350px;
+    transform: translate(-50%, -50%);
+    display: flex; /* Centering content */
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    border-radius: 20px;
+  }
+  
+  /* Modal content styling */
+  .modal-content {
+    background: #05161a;
+    box-shadow: 0 0 20px 8px #14c7ce;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+  }
+  
+  .modal-content h3{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold';
+    color:rgba(15,150,144,1);
+    font-size: 30px;
+    text-transform: uppercase;
+  }
+  
+  .modal-content p{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow';
+    letter-spacing: normal;
+    color: #ffffff;
+    font-size: 25px;
+  }
+  
+  .modal-content img {
+    width: auto;
+    max-width: 65%; /* Adjust image size to fit within modal */
+    border-radius: 10px;
+    height: 40%; /* Maintain aspect ratio */
+  }
+  
+  /* Close button styling */
+  .modal .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #aaa;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .modal .close:hover {
+    color: red;
+  }
+  /* Image container styling */
+  .image-container img {
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+  }
+  
+  /* Highlighted photo-container (matching role) */
+  .highlight {
+    transform: scale(1.1);  /* Increase size for highlight effect */
+    transition: transform 0.3s ease; /* Smooth transition */
+  }
+  
+  /* Blurred photo-container (non-matching roles) */
+  .dim {
+    filter: blur(5px);  /* Apply blur effect */
+    opacity: 0.5;  /* Reduce opacity for non-matching roles */
+    transition: filter 0.3s ease, opacity 0.3s ease;
+  }
+  
+  /* Apply blur to all elements except the modal and active student */
+  .body-blur > *:not(#detailsModal) {
+    filter: blur(8px);
+    pointer-events: none; /* Disable interactions with blurred elements */
+  }
+  
+  /* Apply blur to specific elements */
+  .blur {
+    filter: blur(8px);
+    pointer-events: none; /* Disable interactions with blurred elements */
+  }
+  
+  /* Highlight active model */
+  .active-model {
+    filter: none !important; /* Ensure it's not blurred */
+    pointer-events: auto; /* Allow interaction */
+    transform: scale(1.1); /* Optional zoom-in effect */
+    transition: transform 0.3s ease;
+  }
+  
+  
+  @keyframes floatText {
+    0% {
+      transform: translateY(0); /* Start at original position */
+    }
+    50% {
+      transform: translateY(-10px); /* Move up by 10px */
+    }
+    100% {
+      transform: translateY(0); /* Return to original position */
+    }
+  }
+  
