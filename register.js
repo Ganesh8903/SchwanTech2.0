@@ -249,7 +249,7 @@ const students = [
         role: "WEBSITE DESIGN,SOFTWARE MENTORS",
         mobile: "+918000000006",
         email: "ganesh@example.com",
-        image: "Images/About.png"
+        image: "FINAL/GANESH BME.jpg"
     },
     {
         name: "Geetharakchana",
@@ -487,7 +487,7 @@ const students = [
         role: "FUNGAMES,POSTER",
         mobile: "+918000000010",
         email: "harikrishnan@example.com",
-        image: "Images/Sabari.png"
+        image: "FINAL/SABARI BME.jpg"
     },
     {
         name: "Sakthikumar",
