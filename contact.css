@@ -9,7 +9,7 @@
     align-items: center;
     gap: 10px;
     text-align: center;
-    z-index: -1;
+    z-index: auto;
 }
   
 /* Title */
@@ -140,7 +140,7 @@
   z-index: 1000;
   left: 50%;
   top: 45%;
-  width: 500px;
+  width: 60%;
   height: 350px;
   transform: translate(-50%, -50%);
   display: flex; /* Centering content */
@@ -152,14 +152,14 @@
 
 /* Modal content styling */
 .modal-content {
+  position: relative;
   background: #05161a;
   box-shadow: 0 0 20px 8px #14c7ce;
   padding: 20px;
   border-radius: 10px;
   text-align: center;
-  width: 80%;
+  width: 70%;
   max-width: 500px;
-  position: relative;
 }
 
 .modal-content h3{
