@@ -1,14 +1,14 @@
 .about-section {
-    position: relative;
-    text-align: center;
-    top: 0;
-    left: 0;
-    padding: 0;
-    margin: 0 auto;
-  }
+  position: relative;
+  text-align: center;
+  top: 0;
+  left: 0;
+  padding: 0;
+  margin: 0 auto;
+}
   
   .promo {
-  color: #efb61c;
+    color: #efb61c;
     margin-top: 0%;
     bottom: 20%;
     top: 20%;
@@ -33,7 +33,7 @@
   position: relative;
   width: 1500px;
   height: 40vw;
-  perspective: 900px;
+  perspective: 2000px;
   display: flex; /* Flexbox for alignment */
   justify-content: center; /* Horizontal alignment */
   align-items: center; /* Vertical alignment */
@@ -53,17 +53,15 @@
   
   .carousel-container img {
     position: relative;
-    width: 1300px;
+    width: 1000px;
     height: 300px;
     border-radius: 90px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     transform-origin: center;
-    backface-visibility: hidden;
     transition: transform 0.5s, width 0.5s, height 0.5s;
-    z-index: 2;
-    opacity: 50%;
+    z-index: 7;
+    opacity: 100%;
   }
-  
   .carousel-container img.active {
     position: absolute;
   border: 2px solid rgba(255, 255, 255, 0.8);
@@ -82,28 +80,29 @@
   
   /* Positioning each image in the 3D space */
   .carousel-container img:nth-child(1) {
-  transform: rotateY(0deg) translateZ(500px); /* Increase Z distance */
+    transform: rotateY(0deg) translateZ(900px); /* Increased Z distance */
   }
   
   .carousel-container img:nth-child(2) {
-  transform: rotateY(60deg) translateZ(400px);
+    transform: rotateY(60deg) translateZ(500px); /* Increased Z distance */
   }
   
   .carousel-container img:nth-child(3) {
-  transform: rotateY(120deg) translateZ(300px);
+    transform: rotateY(120deg) translateZ(400px); /* Increased Z distance */
   }
   
   .carousel-container img:nth-child(4) {
-  transform: rotateY(180deg) translateZ(200px);
+    transform: rotateY(180deg) translateZ(300px); /* Increased Z distance */
   }
   
   .carousel-container img:nth-child(5) {
-  transform: rotateY(240deg) translateZ(300px);
+    transform: rotateY(240deg) translateZ(400px); /* Increased Z distance */
   }
   
   .carousel-container img:nth-child(6) {
-  transform: rotateY(300deg) translateZ(400px);
+    transform: rotateY(300deg) translateZ(500px); /* Increased Z distance */
   }
+  
   
   .carousel {
     cursor: pointer;
@@ -213,6 +212,12 @@
   }
   
   @media (max-width: 520px) {
+    .about-section {
+        position: relative;
+        height: 150px; /* Reduce the height */
+        padding: 20px 0; /* Adjust padding if needed */
+        margin-bottom: -125%; /* Remove bottom margin if any */
+    }
 
     .promo {
       font-size: 35px;

@@ -277,4 +277,13 @@ section.show-animate {
 .department-bme {
     font-size: 26px;
 }
+
+.logo {
+  height: 50px; /* Adjust as needed */
+  width: 140px; /* Set desired width */
+  height: 140px; /* Set desired height */
+  position: absolute;
+  top: -15px; /* Distance from the top */
+  left: -5px; /* Distance from the left */
+}
   }

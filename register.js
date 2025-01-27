@@ -649,7 +649,7 @@ const students = [
         role: "VOLUNTEERS",
         mobile: "+918000000010",
         email: "harikrishnan@example.com",
-        image: "FINAL/VIJAY SAKTHI BME.jpg"
+        image: "FINAL/VIJAY BME.jpg"
     },
     {
         name: "Vinoth", 
