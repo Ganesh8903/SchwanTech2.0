@@ -65,27 +65,27 @@ html, body {
   font-family: Shadow of the deads;
   }
 
-.SS{
-  position: absolute; /* Absolute positioning for fine control */
-  top: 22%; /* Center vertically */
-  bottom:20%;
-  left: 35.5%; /* Adjust horizontally based on design */
-  transform: translate(-50%, -50%); /* Center it exactly */
-  font-size: 120px; /* Large font size */
-  font-weight: bold; /* Bold text for prominence */
-  color: transparent; /* Light text color */
-  text-shadow: 1px 1px 1px rgb(0, 0, 0); /* Red glow */
-  z-index: 2; /* Ensure it appears above the background */
-  -webkit-text-stroke: .5px rgb(0, 0, 0);
-  font-style: italic;
-  font-family: Shadow of the deads;
-  opacity: 40%;
-}
+  .SS{
+    position: absolute; /* Absolute positioning for fine control */
+    top: 23.5%; /* Center vertically */
+    bottom:20%;
+    left: 36.5%; /* Adjust horizontally based on design */
+    transform: translate(-50%, -50%); /* Center it exactly */
+    font-size: 120px; /* Large font size */
+    font-weight: bold; /* Bold text for prominence */
+    color: transparent; /* Light text color */
+    text-shadow: 1px 1px 1px rgb(0, 0, 0); /* Red glow */ /* Ensure it appears above the background */
+    -webkit-text-stroke: .5px rgb(0, 0, 0);
+    font-style: italic;
+    font-family: Shadow of the deads;
+    opacity: 40%;
+  }
+
 
 .C,.H,.W,.A,.N{
   position: absolute;
-  top: 20%;
-  left: 43.3%;
+  top: 10%;
+  left: 40.3%;
   transform: translate(-50%, -50%);
   font-size: 130px;
   font-weight: bold;
@@ -94,23 +94,24 @@ html, body {
   letter-spacing: -3px;
   text-shadow: 15px 15px 15px rgba(0, 0, 0, 1) ; /* Bright cyan shadow */
   font-family: bahnschrift;
+  transform: rotateY(-20deg);
 }
 .H{
-  left: 49%;
+  left: 45%;
   z-index: 2;
 }
 .W{
-  left: 56%;
+  left: 51%;
   z-index: 2;
 }
 .A{
-  left: 62.3%;
+  left: 57.3%;
   z-index: 2;
 }.N{
-  left: 68.2%;
+  left: 62.2%;
   z-index: 2;
 }
-.TECH{
+.Tech{
   position: absolute;
   font-size: 33px;
   color: rgb(255, 255, 255);
@@ -121,15 +122,16 @@ html, body {
   letter-spacing: 72px;
   font-family: bahnschrift;
 }
-.point{
+.Point{
   position:absolute;
   font-style: italic;
-  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family:Impacto, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 32px;
   top: 30%;
-  left:72%;
+  left:68%;
   color: rgb(233, 225, 0);
   text-shadow: 10px 10px 10px black ;
+  z-index: 2;
 
 }
 
@@ -193,13 +195,13 @@ html, body {
   color: rgb(255, 255, 255);
 }
 
-img {
+.logo {
   position: absolute;
   top: 1%; /* Aligns the image to the top */
   left: 1%; /* Aligns the image to the left */
   opacity: 90%; /* Adjusts transparency */
   width: 50px; /* Set the desired width */
-  height: auto; /* Maintains the aspect ratio */
+  height: 79px; /* Maintains the aspect ratio */
 }
 /* Centering the container for the countdown */
 
@@ -264,258 +266,474 @@ img {
   word-spacing: 0px;
 }
 
-.ripple {
+/* .ripple {
   position: absolute;
-  top: 50%;
+  top: 80%;
   left: 50%;
   width: 0;
   height: 0;
   border-radius: 50%;
-  background-color: black;
+  background-color: rgba(15, 150, 144, 0.6);
   transform: translate(-50%, -50%);
-  animation: ripple 1.5s forwards;
+  animation: ripple 10s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 @keyframes ripple {
   0% {
     width: 0;
     height: 0;
+    opacity: 0.6;
+  }
+  10% {
+    width: 100px;
+    height: 100px;
+    opacity: 0.55;
+  }
+  20% {
+    width: 200px;
+    height: 200px;
+    opacity: 0.5;
+  }
+  30% {
+    width: 300px;
+    height: 300px;
+    opacity: 0.45;
+  }
+  40% {
+    width: 400px;
+    height: 400px;
+    opacity: 0.4;
+  }
+  50% {
+    width: 500px;
+    height: 500px;
+    opacity: 0.35;
+  }
+  60% {
+    width: 600px;
+    height: 600px;
+    opacity: 0.3;
+  }
+  70% {
+    width: 700px;
+    height: 700px;
+    opacity: 0.25;
+  }
+  80% {
+    width: 800px;
+    height: 800px;
+    opacity: 0.2;
+  }
+  90% {
+    width: 900px;
+    height: 900px;
+    opacity: 0.1;
   }
   100% {
-    width: 200%;
-    height: 200%;
+    width: 1000px;
+    height: 1000px;
+    opacity: 0; 
   }
-}
+} */
 
+/* Responsive CSS */
+/* For screens smaller than 1200px */
+/* Responsive CSS */
+
+/* For screens smaller than 1200px */
 @media (max-width: 1200px) {
-  .container {
-    flex-direction: column;
-  }
+
   .year1, .year2, .year3 {
-    font-size: 200px;
-    letter-spacing: -15px;
+    top: 200px;
+    margin-top: 40%;
+    font-size: 450px;
+    line-height: 1%;
+    margin-left: -10%;
   }
   .S {
-    font-size: 100px;
-    top: 20%;
-    left: 35%;
+    font-size: 110px;
+    left: 34%;
   }
+
   .SS {
-    font-size: 100px;
-    top: 20%;
-    left: 35%;
+    font-size: 110px;
+    left: 39.5%;
+    top: 35%;
   }
+
+  .C, .H, .W, .A, .N {
+    font-size: 110px;
+    top: 19%;
+  }
+
+  .H {
+    left: 48%;
+  }
+
+  .W {
+    left: 55%;
+  }
+
+  .A {
+    left: 61.3%;
+  }
+
+  .N {
+    left: 67%;
+  }
+
   .Hackathon {
-    top: 18%;
-    font-size: 22px;
+    font-size: 20px;
+    margin-top: 13%;
+    top: 14%;
+    right: 35%;
   }
+
+  .Tech {
+    font-size: 28px;
+    top: 26%;
+    left: 59%;
+  }
+
+  .Point {
+    font-size: 28px;
+    margin-top: -2%;
+    margin-left: 4%;
+  }
+
   .time-container {
-    left: 34%; /* Adjusted slightly to the left */
+    left: 34%;
+    gap: 40px;
   }
+
   .time-box {
     width: 30px;
     height: 35px;
-    padding: 15px;
   }
+
+  .time-box div:first-child {
+    font-size: 35px;
+  }
+
   .time-label {
-    font-size: 14px;
+    font-size: 16px;
   }
-  .Tech, .Point {
-    font-size: 33px;
-    margin-top: -20px; /* Adjust position relative to SCHWAN */
-  }
-  .countdown {
-    font-size: 40px;
-  }
-  .open button {
-    width: 180px;
-    height: 50px;
-    font-size: 18px;
-    padding: 10px 20px;
+
+  .open {
+    width: 400px;
+    font-size: 45px;
   }
 }
 
+/* For screens smaller than 991px */
 @media (max-width: 991px) {
-  .year1, .year2, .year3 {
-    font-size: 180px;
-    letter-spacing: -12px;
+  .S {
+    font-size: 100px;
+    left: 33%;
   }
+
+  .SS {
+    font-size: 100px;
+    left: 33.5%;
+  }
+
+  .C, .H, .W, .A, .N {
+    font-size: 100px;
+    top: 18%;
+  }
+
+  .H {
+    left: 47%;
+  }
+
+  .W {
+    left: 54%;
+  }
+
+  .A {
+    left: 60.3%;
+  }
+
+  .N {
+    left: 66%;
+  }
+
   .Hackathon {
-    top: 16%;
-    font-size: 20px;
+    font-size: 18px;
+    top: 13%;
+    right: 34%;
   }
+
+  .Tech {
+    font-size: 25px;
+    left: 54%;
+    letter-spacing: 60px;
+  }
+
+  .Point {
+    font-size: 25px;
+    top: 26%;
+    left: 69%;
+  }
+
   .time-container {
-    left: 32%;
+    left: 33%;
+    gap: 35px;
   }
+
   .time-box {
     width: 28px;
     height: 32px;
-    padding: 12px;
   }
+
+  .time-box div:first-child {
+    font-size: 30px;
+  }
+
   .time-label {
-    font-size: 12px;
-  }
-  .Tech, .Point {
-    font-size: 33px;
-    margin-top: -15px; /* Align with SCHWAN */
-  }
-  .open button {
-    width: 160px;
-    height: 45px;
-    font-size: 16px;
-    padding: 8px 18px;
-  }
-}
-
-@media (max-width: 850px) {
-  .S, .SS, .C, .H, .W, .A, .N {
-    font-size: 80px;
-  }
-  .Tech, .Point {
-    font-size: 33px;
-    margin-top: -12px;
-  }
-  .time-box {
-    width: 25px;
-    height: 30px;
-    padding: 10px;
-  }
-  .time-label {
-    font-size: 14px;
-  }
- 
-  .open button {
-    width: 140px;
-    height: 40px;
-    font-size: 14px;
-    padding: 7px 15px;
-  }
-}
-
-@media (max-width: 768px) {
-  .year1, .year2, .year3 {
-    font-size: 150px;
-    letter-spacing: -10px;
-  }
-  .S, .SS, .C, .H, .W, .A, .N {
-    font-size: 70px;
-  }
-  .Tech, .Point {
-    font-size: 33px;
-    margin-top: -10px;
-  }
-  .time-box {
-    width: 22px;
-    height: 27px;
-    padding: 8px;
-  }
-  .time-label {
-    font-size: 12px;
-  }
- 
-  .open button {
-    width: 120px;
-    height: 35px;
-    font-size: 12px;
-    padding: 6px 12px;
-  }
-}
-
-@media (max-width: 520px) {
-  .S, .SS, .C, .H, .W, .A, .N {
-    font-size: 60px;
-  }
-  .Tech, .Point {
-    font-size: 33px;
-    margin-top: -8px;
-  }
-  .time-box {
-    width: 20px;
-    height: 25px;
-    padding: 6px;
-  }
-  .time-label {
-    font-size: 10px;
-  }
-  .open button {
-    width: 100px;
-    height: 30px;
-    font-size: 10px;
-    padding: 5px 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .S, .SS, .C, .H, .W, .A, .N {
-    font-size: 50px;
-  }
-  .Tech, .Point {
-    font-size: 33px;
-    margin-top: -6px;
-  }
-  .time-box {
-    width: 18px;
-    height: 20px;
-    padding: 5px;
-  }
-  .time-label {
-    font-size: 9px;
-  }
-  .open button {
-    width: 90px;
-    height: 28px;
-    font-size: 9px;
-    padding: 4px 8px;
+    font-size: 15px;
   }
 
-}
-
-@media (max-width: 462px) {
-  .S, .SS, .C, .H, .W, .A, .N {
-    font-size: 45px;
-  }
-  .Tech, .Point {
-    font-size: 33px;
-    margin-top: -5px;
-  }
-  .time-box {
-    width: 16px;
-    height: 18px;
-    padding: 4px;
-  }
-  .time-label {
-    font-size: 8px;
-  }
-  .open button {
-    width: 80px;
-    height: 26px;
-    font-size: 8px;
-    padding: 4px 6px;
-  }
-}
-
-@media (max-width: 371px) {
-  .S, .SS, .C, .H, .W, .A, .N {
+  .open {
+    width: 380px;
     font-size: 40px;
   }
-  .Tech, .Point {
-    font-size: 33px;
-    margin-top: -4px;
+}
+
+/* For screens smaller than 768px */
+@media (max-width: 768px) {
+  .S {
+    font-size: 90px;
+    left: 32%;
   }
+
+  .SS {
+    font-size: 90px;
+    left: 32.5%;
+  }
+
+  .C, .H, .W, .A, .N {
+    font-size: 90px;
+    top: 17%;
+  }
+
+  .H {
+    left: 46%;
+  }
+
+  .W {
+    left: 53%;
+  }
+
+  .A {
+    left: 59.3%;
+  }
+
+  .N {
+    left: 65%;
+  }
+
+  .Hackathon {
+    font-size: 16px;
+    top: 12%;
+    right: 33%;
+  }
+
+  .Tech {
+    font-size: 22px;
+    left: 53%;
+    letter-spacing: 15px;
+  }
+
+  .Point {
+    font-size: 22px;
+    top: 24%;
+    left: 68%;
+  }
+
+  .time-container {
+    left: 32%;
+    gap: 30px;
+  }
+
   .time-box {
-    width: 14px;
-    height: 16px;
-    padding: 3px;
+    width: 25px;
+    height: 28px;
   }
+
+  .time-box div:first-child {
+    font-size: 28px;
+  }
+
   .time-label {
-    font-size: 7px;
+    font-size: 14px;
   }
-  .open button {
-    width: 70px;
-    height: 24px;
-    font-size: 7px;
-    padding: 3px 5px;
+
+  .open {
+    width: 350px;
+    font-size: 35px;
   }
 }
 
+/* For screens smaller than 520px */
+@media (max-width: 520px) {
+  .year1, .year2, .year3 {
+    top: 200px;
+    margin-top: 25%;
+    font-size: 190px;
+    line-height: 40%;
+    margin-left: -10%;
+  }
+  .S {
+    font-size: 80px;
+    left: 20%;
+  }
 
+  .SS {
+    font-size: 80px;
+    margin-top: 2%;
+    left: 24%;
+  }
+
+  .C, .H, .W, .A, .N {
+    font-size: 70px;
+    top: 16%;
+    left: 32%;
+  }
+
+  .H {
+    left: 41%;
+  }
+
+  .W {
+    left: 52%;
+  }
+
+  .A {
+    left: 64.3%;
+  }
+
+  .N {
+    left: 74%;
+  }
+
+  .Hackathon {
+    font-size: 10px;
+    top: 20%;
+    right: 20%;
+    letter-spacing: 10px;
+  }
+
+  .Tech {
+    font-size: 20px;
+    letter-spacing: 20px;
+    top: 30%;
+    left:55%;
+
+  }
+
+  .Point {
+    font-size: 18px;
+    top: 26%;
+    left: 86%;
+  }
+
+  .time-container {
+    left: 8%;
+    gap: 25px;
+  }
+
+  .time-box {
+    width: 22px;
+    height: 25px;
+  }
+
+  .time-box div:first-child {
+    font-size: 25px;
+  }
+
+  .time-label {
+    font-size: 19px;
+  }
+
+  .open {
+    top: 78%;
+    width: 300px;
+    font-size: 30px;
+  }
+}
+
+/* For screens smaller than 371px */
+@media (max-width: 371px) {
+  .S {
+    font-size: 70px;
+    left: 30%;
+  }
+
+  .SS {
+    font-size: 70px;
+    left: 30.5%;
+  }
+
+  .C, .H, .W, .A, .N {
+    font-size: 70px;
+    top: 15%;
+  }
+
+  .H {
+    left: 44%;
+  }
+
+  .W {
+    left: 51%;
+  }
+
+  .A {
+    left: 57.3%;
+  }
+
+  .N {
+    left: 63%;
+  }
+
+  .Hackathon {
+    font-size: 12px;
+    top: 10%;
+    right: 31%;
+  }
+
+  .Tech {
+    font-size: 16px;
+    left: 51%;
+    letter-spacing: 15px;
+  }
+
+  .Point {
+    font-size: 16px;
+    top: 20%;
+    left: 66%;
+  }
+
+  .time-container {
+    left: 30%;
+    gap: 20px;
+  }
+
+  .time-box {
+    width: 20px;
+    height: 22px;
+  }
+
+  .time-box div:first-child {
+    font-size: 22px;
+  }
+
+  .time-label {
+    font-size: 10px;
+  }
+
+  .open {
+    width: 250px;
+    font-size: 25px;
+  }
+}

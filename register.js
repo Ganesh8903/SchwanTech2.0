@@ -45,6 +45,56 @@ setInterval(createShootingStar, 500);
 window.addEventListener('scroll', () => {
 });
 
+
+// Portfolio js
+let menuIcon = document.querySelector('#menu-icon');
+let navbar = document.querySelector('.navbar');
+
+menuIcon.onclick = () => {
+    menuIcon.classList.toggle('bx-x');
+    navbar.classList.toggle('active');
+}
+
+
+let sections = document.querySelectorAll('section');
+let navLinks = document.querySelectorAll('header nav a');
+
+
+window.onscroll=() =>{
+
+    sections.forEach(sec => {
+        let top = window.scrollY;
+        let offset = sec.offsetTop -100;
+        let height = sec.offsetHeight;
+        let id = sec.getAttribute('id');
+
+        if(top >= offset && top < offset + height){
+            navLinks.forEach(links => {
+                links.classList.remove('active');
+                document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+            });
+
+            sec.classList.add('show-animate');
+        }
+        else{
+            sec.classList.remove('show-animate');
+        }
+    });
+
+    let header = document.querySelector('header');
+
+    header.classList.toggle('sticky',window.scrollY > 100);
+
+
+    menuIcon.classList.remove('bx-x');
+    navbar.classList.remove('active');
+
+    let footer = document.querySelector('footer');
+
+    footer.classList.toggle('show-animate', this.innerHeight + this.scrollY >= document.scrollingElement.scrollHeight);
+}
+
+
 // Smooth scroll to sections, accounting for the header height
 function smoothScrollToSection(event) {
     event.preventDefault(); // Prevent default anchor click behavior
@@ -636,43 +686,80 @@ const students = [
     const student = students.find((s) => s.name === alt);
   
     if (student) {
-      // Display modal with student details
+      // Create modal content variables
       const modal = document.getElementById("detailsModal");
-      document.getElementById("modalName").innerText = student.name;
-      document.getElementById("modalMobile").innerText = `${student.mobile}`;
-      document.getElementById("modalEmail").innerText = `${student.email}`;
-      document.getElementById("modalImage").src = student.image;
-  
-      modal.style.display = "block"; // Show modal
-  
-       // Blur h1 and button-grid
-       const header = document.querySelector("h1");
-       const buttonGrid = document.querySelector(".button-grid");
-       header.classList.add("blur");
-       buttonGrid.classList.add("blur");
-   
-       // Blur all models except the clicked one
-       const photoGrid = document.getElementById("photoGrid");
-       const containers = photoGrid.querySelectorAll(".photo-container");
-      containers.forEach((otherContainer) => {
-        if (otherContainer === container) {
-          otherContainer.classList.add("active-student");
-          otherContainer.classList.remove("dim");
-        } else {
-          otherContainer.classList.add("dim");
-          otherContainer.classList.remove("active-student");
-        }
-      });
-  
-      // Ensure the modal is not blurred
-      modal.style.filter = "none";
-      modal.style.pointerEvents = "auto";
-  
-      // Add event listener to close modal
+      const modalName = document.getElementById("modalName");
+      const modalEmail = document.getElementById("modalEmail");
       const modalImage = document.getElementById("modalImage");
-      modalImage.addEventListener("click", closeModal);
+  
+      // Clear previous modal content
+      modalName.innerText = "";
+      modalEmail.innerText = "";
+      modalImage.src = "";
+      modalImage.alt = "";
+  
+      // Load the image in a temporary object to ensure it loads fully
+      const tempImage = new Image();
+      tempImage.onload = () => {
+        // Populate modal content once the image loads
+        modalName.innerText = student.name;
+        modalEmail.innerText = student.email;
+        modalImage.src = student.image;
+        modalImage.alt = student.name;
+  
+        // Show the modal
+        modal.style.display = "block";
+  
+        // Add blur effect to the background
+        const header = document.querySelector("h1");
+        const buttonGrid = document.querySelector(".button-grid");
+        header.classList.add("blur");
+        buttonGrid.classList.add("blur");
+  
+        // Dim other containers
+        const photoGrid = document.getElementById("photoGrid");
+        const containers = photoGrid.querySelectorAll(".photo-container");
+        containers.forEach((otherContainer) => {
+          if (otherContainer === container) {
+            otherContainer.classList.add("active-student");
+            otherContainer.classList.remove("dim");
+          } else {
+            otherContainer.classList.add("dim");
+            otherContainer.classList.remove("active-student");
+          }
+        });
+  
+        // Ensure modal is interactive
+        modal.style.filter = "none";
+        modal.style.pointerEvents = "auto";
+  
+        // Add event listener to close the modal
+        modalImage.addEventListener("click", closeModal);
+      };
+  
+      tempImage.onerror = () => {
+        // Handle image loading errors
+        alert("Failed to load the image. Please try again.");
+      };
+  
+      // Start loading the image
+      tempImage.src = student.image;
     }
   }
+
+  document.addEventListener("click", (e) => {
+    const modal = document.getElementById("detailsModal");
+    if (modal.style.display === "block" && !modal.contains(e.target)) {
+      closeModal();
+    }
+  });
+  
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeModal();
+    }
+  });
+  
   
   
   // Close modal function
@@ -719,7 +806,7 @@ const students = [
     // Ensure the modal is empty when the page loads
     modal.style.display = "none"; // Keep the modal hidden by default
     document.getElementById("modalName").innerText = "";
-    document.getElementById("modalMobile").innerText = "";
+
     document.getElementById("modalEmail").innerText = "";
     document.getElementById("modalImage").src = "";
   }
@@ -801,58 +888,70 @@ function filterByRole(role) {
 
 
 
- const carousel = document.getElementById('carousel');
-        const carouselContainer = document.querySelector('.carousel-container');
-        const images = document.querySelectorAll('.carousel-container img');
-        const overlay = document.getElementById('overlay');
-        const overlayImg = overlay.querySelector('img');
-        let currentIndex = 0;
-        const totalImages = images.length;
+const carousel = document.getElementById('carousel');
+const carouselContainer = document.querySelector('.carousel-container');
+const images = document.querySelectorAll('.carousel-container img');
+let currentIndex = 0;
+const totalImages = images.length;
+let startX = 0;
+let isDragging = false;
 
-        function updateCarousel() {
-            images.forEach((img, index) => {
-                const angle = ((index - currentIndex + totalImages) % totalImages) * (360 / totalImages);
-                img.style.transition = "transform 0.6s ease-in-out"; 
-                img.style.transform = `rotateY(${angle}deg) translateZ(${400 - Math.abs(angle - 180) * 0.5}px)`;
-                img.classList.toggle('active', index === currentIndex);
-            });
+// Update the carousel based on the current index
+function updateCarousel() {
+    images.forEach((img, index) => {
+        const angle = ((index - currentIndex) * (360 / totalImages)) % 360; // Circular arrangement
+        img.style.transform = `rotateY(${angle}deg) translateZ(700px)`; // Adjust `translateZ` for depth
+        img.classList.toggle('active', index === currentIndex); // Highlight the active image
+    });
+}
+
+// Handle drag start
+function handleDragStart(e) {
+    startX = e.touches ? e.touches[0].clientX : e.clientX; // Capture starting X position
+    isDragging = true;
+    carousel.style.cursor = 'grabbing';
+}
+
+// Handle drag move
+function handleDragMove(e) {
+    if (!isDragging) return;
+
+    const currentX = e.touches ? e.touches[0].clientX : e.clientX;
+    const deltaX = currentX - startX;
+
+    if (Math.abs(deltaX) > 500) { // Threshold for swipe
+        if (deltaX < 0) {
+            // Swipe left
+            currentIndex = (currentIndex + 1) % totalImages;
+        } else {
+            // Swipe right
+            currentIndex = (currentIndex - 1 + totalImages) % totalImages;
         }
-        
 
-        function handleSideClick(direction) {
-            if (direction === 'left') {
-                currentIndex = (currentIndex - 1 + totalImages) % totalImages;
-            } else if (direction === 'right') {
-                currentIndex = (currentIndex + 1) % totalImages;
-            }
-            updateCarousel();
-        }
-
-        carousel.addEventListener('click', (e) => {
-            const { left, width } = carousel.getBoundingClientRect();
-            const clickPosition = e.clientX - left;
-            if (clickPosition < width / 2) {
-                handleSideClick('left');
-            } else {
-                handleSideClick('right');
-            }
-        });
-
-        images.forEach((img) => {
-            img.addEventListener('click', (e) => {
-                e.stopPropagation();
-                overlayImg.src = img.src;
-                overlay.classList.add('active');
-                carousel.classList.add('blurred');
-            });
-        });
-
-        overlay.addEventListener('click', () => {
-            overlay.classList.remove('active');
-            carousel.classList.remove('blurred');
-        });
-
+        startX = currentX; // Reset startX for smoother continuous drag
         updateCarousel();
+    }
+}
+
+// Handle drag end
+function handleDragEnd() {
+    isDragging = false;
+    carousel.style.cursor = 'grab';
+}
+
+// Attach event listeners for mouse and touch events
+carousel.addEventListener('mousedown', handleDragStart);
+carousel.addEventListener('touchstart', handleDragStart);
+
+carousel.addEventListener('mousemove', handleDragMove);
+carousel.addEventListener('touchmove', handleDragMove);
+
+carousel.addEventListener('mouseup', handleDragEnd);
+carousel.addEventListener('touchend', handleDragEnd);
+
+// Initialize carousel
+updateCarousel();
+
 
 
         const observer = new IntersectionObserver(

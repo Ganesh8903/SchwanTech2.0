@@ -1,0 +1,310 @@
+.contact-section {
+    position: relative;
+    padding-top: 15%;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    text-align: center;
+    z-index: -1;
+}
+  
+/* Title */
+.title {
+    position: absolute; /* Precisely position the title */
+    top: -1%;
+    left: 30%; /* Center horizontally */
+    transform: translateX(-50%); /* Ensure perfect centering */
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: italic;
+    color: #efb61c;
+    font-size: 60px;
+    letter-spacing: 4px;
+    text-shadow: 5px 5px 8px rgba(5, 22, 26, 1); /* Fix typo in 'rgba' */
+    animation: floatText 3s infinite ease-in-out; /* Apply animation */
+}
+
+/* Button Grid */
+.button-grid {
+    flex: 1 ;
+    top: -15%;
+    max-width: 300px;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 40px;
+    margin: 10px auto; /* Add space after the title */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Neon Button */
+.neon-btn {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 16px;
+    padding: 40px;
+    background: #05161a;
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+    border-radius: 20px;
+    transition: all 0.3s ease; /* Smooth transition for background, box-shadow */
+}
+
+/* Hover effect */
+.neon-btn:hover {
+    background-color: rgba(15, 150, 144, 1);
+    color: rgb(5, 22, 26);
+    font-weight: bold;
+    box-shadow: 0 0 10px 2px #ffffff; /* Cyan box-shadow */
+    transform: scale(1.1); /* Slight scale effect */
+}
+
+/* Active (Click) effect */
+.neon-btn:active {
+    color: #05161a;
+    font-weight: bold;
+    background: rgba(15, 150, 144, 1); /* Darker green on click */
+    box-shadow: 0 0 20px 4px #ffffff; /* Stronger cyan box-shadow on click */
+    transform: scale(0.95); /* Slight shrinking effect */
+}
+
+/* Photo Grid */
+.photo-grid {
+    top: -20%;
+    flex: 3;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 images per row */
+    gap: 15px; /* Space between images */
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto; /* Space between button grid and photo grid */
+    padding: 20px;
+    z-index: 0; /* Ensure it appears below the title and buttons */
+}
+
+/* Photo Container */
+.photo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px; /* Adjust as needed */
+    height: 240px; /* Adjust as needed */
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, background-color 0.3s ease;
+    border: 2px solid cyan; /* Add border to each photo container */
+    border-radius: 25px; /* Optional rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
+    transition: transform 0.5s ease;
+}
+
+/* Photo Inside Container */
+.photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px; /* Optional rounded corners */
+}
+
+  
+  .photo-container.dim {
+    opacity: 0.4; /* Reduced opacity for non-matching roles */
+  
+  }
+  
+  .photo-container:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    z-index: 1;
+    border-color: #ffffff;
+    box-shadow: 0px 0px 20px 10px rgba(20, 199, 206, 1); /* Increased intensity */
+  }
+  
+  .photo-container.highlight {
+    transform: scale(1.1); /* Larger zoom effect for matching roles */
+    border-color: #ffffff;
+    box-shadow: 0px 0px 20px 10px rgba(20, 199, 206, 1); /* Increased intensity */
+ }  
+
+  /* Modal Styling */
+  /* Modal container */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 45%;
+    width: 500px;
+    height: 350px;
+    transform: translate(-50%, -50%);
+    display: flex; /* Centering content */
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    border-radius: 20px;
+  }
+  
+  /* Modal content styling */
+  .modal-content {
+    background: #05161a;
+    box-shadow: 0 0 20px 8px #14c7ce;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+  }
+  
+  .modal-content h3{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold';
+    color:rgba(15,150,144,1);
+    font-size: 30px;
+    text-transform: uppercase;
+  }
+  
+  .modal-content p{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow';
+    letter-spacing: normal;
+    color: #ffffff;
+    font-size: 25px;
+  }
+  
+  .modal-content img {
+    width: auto;
+    max-width: 65%; /* Adjust image size to fit within modal */
+    border-radius: 10px;
+    height: 40%; /* Maintain aspect ratio */
+  }
+  
+ 
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    z-index: 10;
+  }
+  .close-btn:hover {
+    color: red;
+  }
+  
+  
+  /* Image container styling */
+  .image-container img {
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+  }
+  
+  /* Highlighted photo-container (matching role) */
+  .highlight {
+    transform: scale(1.1);  /* Increase size for highlight effect */
+    transition: transform 0.3s ease; /* Smooth transition */
+  }
+  
+  /* Blurred photo-container (non-matching roles) */
+  .dim {
+    filter: blur(5px);  /* Apply blur effect */
+    opacity: 0.5;  /* Reduce opacity for non-matching roles */
+    transition: filter 0.3s ease, opacity 0.3s ease;
+  }
+  
+  /* Apply blur to all elements except the modal and active student */
+  .body-blur > *:not(#detailsModal) {
+    filter: blur(8px);
+    pointer-events: none; /* Disable interactions with blurred elements */
+  }
+  
+  /* Apply blur to specific elements */
+  .blur {
+    filter: blur(8px);
+    pointer-events: none; /* Disable interactions with blurred elements */
+  }
+  
+  /* Highlight active model */
+  .active-model {
+    filter: none !important; /* Ensure it's not blurred */
+    pointer-events: auto; /* Allow interaction */
+    transform: scale(1.1); /* Optional zoom-in effect */
+    transition: transform 0.3s ease;
+  }
+  
+  
+  @keyframes floatText {
+    0% {
+      transform: translateY(0); /* Start at original position */
+    }
+    50% {
+      transform: translateY(-10px); /* Move up by 10px */
+    }
+    100% {
+      transform: translateY(0); /* Return to original position */
+    }
+  }
+
+
+
+
+/* Media Query for screens up to 520px */
+@media screen and (max-width: 520px) {
+    .title {
+        font-size: 30px; /* Further reduce title size */
+        left: 5%; /* Keep centered */
+        transform: translateX(60%); /* Keep centered horizontally */
+        margin-top: 0;
+        margin-bottom: 20px; /* Add space below the title */
+    }
+
+    .button-grid {
+        margin-top: 120px; /* Add margin to ensure separation */
+        grid-template-columns: repeat(3, 1fr); /* 3 buttons per row */
+        gap: 10px; /* Smaller gap */
+        max-width: 200px; /* Smaller max width */
+    }
+
+    .photo-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 images per row */
+        gap: 8px; /* Smaller gap */
+    }
+
+    .photo-container {
+        width: 120px; /* Smaller photo container */
+        height: 150px; /* Adjust height */
+    }
+
+    .neon-btn {
+        font-size: 14px; /* Smaller button text */
+        padding: 20px; /* Adjust button padding */
+    }
+
+    .modal {
+        width: 95%; /* Full width for small screens */
+        height: auto; /* Adjust height to content */
+        padding: 10px; /* Smaller padding */
+    }
+
+    .modal-content h3 {
+        font-size: 20px; /* Smaller modal title */
+    }
+
+    .modal-content p {
+        font-size: 16px; /* Smaller modal paragraph */
+    }
+
+    .modal-content img {
+        max-width: 70%; /* Further reduce image size */
+    }
+}
+  

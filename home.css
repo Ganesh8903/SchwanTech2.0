@@ -1,0 +1,379 @@
+.home-section {
+    position: relative;
+    padding: 50px 0;
+    width: 100%;
+    top:-5%;
+    margin-bottom: -10%;
+    min-height: 100vh; /* Full screen height */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center the content vertically and horizontally */
+    color: white;
+    text-align: center;
+    z-index: 0;
+    margin-top: 50px;
+    margin-bottom: -100px;
+}
+
+/* Specific styles for each letter */
+.S, .SS, .C, .H, .W, .A, .N {
+    position: absolute;
+    top: 10%;
+    left: 43.3%;
+    transform: translate(-50%, -50%);
+    font-size: 85px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.9);
+    z-index: 1;
+    letter-spacing: -3px;
+    text-shadow: 15px 15px 15px rgba(0, 0, 0, 1); /* Bright cyan shadow */
+    font-family: bahnschrift;
+}
+
+.S {
+    top: 7%;
+    left: 36.8%;
+    font-size: 90px;
+    color: transparent;
+    text-shadow: 1px 1px 1px #efb61c;; /* Red glow */
+    -webkit-text-stroke: .5px #efb61c;;
+    font-family: 'Shadow of the deads';
+    font-style: italic;
+}
+
+.SS {
+    left: 37.5%;
+    font-size: 90px;
+    color: transparent;
+    text-shadow: 1px 1px 1px rgb(0, 0, 0); /* Black glow */
+    -webkit-text-stroke: .5px rgb(0, 0, 0);
+    font-family: 'Shadow of the deads';
+    opacity: 40%;
+}
+
+.H {
+    left: 47%;
+    z-index: 2;
+}
+
+.W {
+    left: 51.5%;
+    z-index: 2;
+}
+
+.A {
+    left: 55.3%;
+    z-index: 2;
+}
+
+.N {
+    left: 59.2%;
+    z-index: 2;
+}
+
+/* TECH text styling */
+.TECH {
+    position: absolute;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    z-index: 2;
+    transform: translate(-50%, -50%);
+    bottom: 65%;
+    right: 32%;
+    letter-spacing: 44px;
+    font-family: bahnschrift;
+}
+
+/* Point number styling */
+.point {
+    position: absolute;
+    font-style: italic;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 32px;
+    bottom: 73%;
+    right: 34.8%;
+    color: #efb61c;
+    text-shadow: 10px 10px 10px black;
+}
+
+/* Welcome text styling */
+.welcome {
+    position: absolute;
+    font-size: 18px;
+    top: 5%;
+    font-weight: 400;
+    font-family: "Segoe Script";
+    bottom: 52%;
+    right: 39%;
+    letter-spacing: 14px;
+    font-style: italic;
+    color: rgb(255, 255, 255);
+}
+
+.announcement {
+    top: 39%;
+    left: 16%;
+    padding: 15px 20px;
+    position: absolute;
+    width: 1000px;
+    height: 270px;
+    background-color: transparent;
+    border: 1px solid rgb(255, 255, 255);
+    font-size: 20px;
+    border-radius: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align content at the top */
+    align-items: center;
+    box-shadow: 
+        0 0 10px rgba(0, 255, 255, 0.8),
+        0 0 20px rgba(0, 255, 255, 0.6),
+        0 0 30px rgba(0, 255, 255, 0.5),
+        0 0 40px rgba(0, 255, 255, 0.4); /* Neon glow effect */
+    transition: box-shadow 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.announcement .announcement-title {
+    position: sticky; /* Keeps the title fixed at the top */
+    top: 0;
+    width: 80%;
+    text-align: center;
+    letter-spacing: 2px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #efb61c;
+    background-color: transparent; /* Prevent overlap color issues */
+    z-index: 1; /* Ensures it stays on top of scrolling content */
+    padding: 3px 0;
+    font-size: 24px;
+}
+
+.announcement ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: calc(100% - 20px); /* Adjust height so list items fit */
+    overflow: hidden; /* Hides content outside the box */
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse; /* Start from the bottom */
+}
+
+.announcement ul li {
+    font-size: 20px;
+    color: #ffffff;
+    margin: 10px 0; 
+    white-space: nowrap;
+    text-align: center;
+    position: relative; 
+    width: 100%; /* Ensure list items take up the full width */
+    animation: scroll-up 6s linear infinite; /* Slow down the scroll animation */
+}
+
+/* Scroll-up animation for list items */
+@keyframes scroll-up {
+    0% {
+        transform: translateY(100%); /* Start from bottom */
+    }
+    100% {
+        transform: translateY(-100%); /* Move completely out of view at the top */
+    }
+}
+
+@media (max-width: 1200px) {
+    .S, .SS, .C, .H, .W, .A, .N {
+        font-size: 70px;
+    }
+
+    .TECH {
+        font-size: 20px;
+        letter-spacing: 35px;
+    }
+
+    .point {
+        font-size: 24px;
+    }
+
+    .welcome {
+        font-size: 16px;
+        letter-spacing: 10px;
+    }
+
+    .announcement {
+        width: 85%;
+        font-size: 18px;
+    }
+
+    .announcement ul li {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 991px) {
+    .S, .SS, .C, .H, .W, .A, .N {
+        font-size: 70px;
+    }
+
+    .TECH {
+        font-size: 20px;
+        letter-spacing: 35px;
+    }
+
+    .point {
+        font-size: 24px;
+    }
+
+    .welcome {
+        font-size: 16px;
+        letter-spacing: 10px;
+    }
+
+    .announcement {
+        width: 85%;
+        font-size: 18px;
+    }
+
+    .announcement ul li {
+        font-size: 16px;
+    }
+}
+
+
+/* Responsive styles for mobile phones */
+@media (max-width: 768px) {
+    .S, .SS, .C, .H, .W, .A, .N {
+        font-size: 50px;
+    }
+
+    .TECH {
+        font-size: 16px;
+        letter-spacing: 20px;
+    }
+
+    .point {
+        font-size: 18px;
+    }
+
+    .welcome {
+        font-size: 12px;
+        letter-spacing: 8px;
+    }
+
+    .announcement {
+        width: 95%;
+        font-size: 16px;
+        border-radius: 15px;
+    }
+
+    .announcement ul li {
+        font-size: 14px;
+    }
+}
+
+/* Responsive styles for small devices */
+@media (max-width: 520px) {
+
+    .home-section {
+        margin-bottom: -90%;
+    }
+
+    #menu-icon{
+        left: 40%;
+    }
+
+
+    .S {
+        font-size: 60px;
+        left: 19%;
+      }
+    
+      .SS {
+        font-size: 60px;
+        margin-top: 10%;
+        left: 25%;
+      }
+    
+      .C, .H, .W, .A, .N {
+        font-size: 60px;
+        top: 9%;
+        left: 35%;
+      }
+    
+      .H {
+        left: 44%;
+      }
+    
+      .W {
+        left: 55%;
+      }
+    
+      .A {
+        left: 65.3%;
+      }
+    
+      .N {
+        left: 75%;
+      }
+    .TECH {
+        top: 22%;
+        left: 47%;
+        font-size: 14px;
+        letter-spacing: 20px;
+    }
+
+    .point {
+        font-size: 14px;
+        top: 14.3%;
+        left: 81%;
+        z-index: 3;
+    }
+
+    .welcome {
+        font-size: 10px;
+        left: 40%;
+        letter-spacing: 3px;
+    }
+
+    .announcement{
+        top: 30%;
+        left: 4%;
+        width: 320px;
+        height: 200px;
+    }
+    .announcement-title {
+        font-size: 10px;
+    }
+
+    .announcement ul li {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 371px) {
+    .S, .SS, .C, .H, .W, .A, .N {
+        font-size: 40px;
+    }
+
+    .TECH {
+        font-size: 14px;
+        letter-spacing: 15px;
+    }
+
+    .point {
+        font-size: 14px;
+    }
+
+    .welcome {
+        font-size: 10px;
+        letter-spacing: 5px;
+    }
+
+    .announcement {
+        font-size: 14px;
+    }
+
+    .announcement ul li {
+        font-size: 12px;
+    }
+}

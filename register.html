@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>Schwan Tech 2.0 Hackathon</title>
   <link href="https://db.onlinewebfonts.com/c/db0603146267fd97cb357d5c2807c44a?family=Shadow+of+the+deads" rel="stylesheet">
   <link href="https://db.onlinewebfonts.com/c/0cecd60fae341384bc8d47975a6206eb?family=Medium" rel="stylesheet" type="text/css"/>
@@ -13,25 +13,29 @@
   <link href="https://db.onlinewebfonts.com/c/881a6b32bd5850aff9bdc13ab2565ffe?family=Scrap+Cursive" rel="stylesheet" type="text/css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="register.css">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="about.css">
+  <link rel="stylesheet" href="schedule.css">
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="contact.css">
 </head>
 <body>
     <div class="stars" id="starsContainer"></div>
   <!-- Header Section -->
   <header class="header">
-    <div class="navbar">
-      <!-- <div class="menu-icon" id="menu-icon">
-      <span>...</span>
-      </div> -->
       <img src="Images/schwan logo.png" alt="Logo" class="logo">
-      <div id="menu" class="menu">
-        <a href="#home" class="nav-link">Home</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#schedule" class="nav-link">Schedule</a>
-        <a href="#register" class="nav-link">Register</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </div>
-    </div>  
+      <div class="bx bx-menu" id="menu-icon"><span class="animate" style="--i:2;"></span></div>
+      <nav class="navbar">
+          <a href="#home" class="active">Home</a>
+          <a href="#about" class="">About</a>
+          <a href="#schedule">Schedule</a>
+          <a href="#register">Register</a>
+          <a href="#contact">Contact</a>
+          <span class="active-nav"></span>
+          <span class="animate" style="--i:2;"></span>
+      </nav> 
   </header>
   <div class="department-section">
     <h2 class="department-bme">BME</h2>
@@ -71,6 +75,17 @@
     <div class="carousel" id="carousel">
       <div class="carousel-container">
           <img src="Images\template-1.jpeg" alt="Slide 1">
+          <img src="Images\template-2.jpeg" alt="Slide 2">
+          <img src="Images\template-3.jpeg" alt="Slide 3">
+          <img src="Images\template-1.jpeg" alt="Slide 4">
+          <img src="Images\template-2.jpeg" alt="Slide 5">
+          <img src="Images\template-3.jpeg" alt="Slide 6">
+          <img src="Images\template-1.jpeg" alt="Slide 1">
+          <img src="Images\template-2.jpeg" alt="Slide 2">
+          <img src="Images\template-3.jpeg" alt="Slide 3">
+          <img src="Images\template-1.jpeg" alt="Slide 4">
+          <img src="Images\template-2.jpeg" alt="Slide 5">
+          <img src="Images\template-3.jpeg" alt="Slide 6"><img src="Images\template-1.jpeg" alt="Slide 1">
           <img src="Images\template-2.jpeg" alt="Slide 2">
           <img src="Images\template-3.jpeg" alt="Slide 3">
           <img src="Images\template-1.jpeg" alt="Slide 4">
@@ -400,6 +415,7 @@
 
       <div class="modal" id="detailsModal">
         <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">×</span>
             <img id="modalImage" src="" alt="Student Image">
             <div class="info">
                 <h3 id="modalName"></h3>
