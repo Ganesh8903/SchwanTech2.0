@@ -241,36 +241,6 @@
 
 
 /* Responsive styles for mobile phones */
-@media (max-width: 768px) {
-    .S, .SS, .C, .H, .W, .A, .N {
-        font-size: 50px;
-    }
-
-    .TECH {
-        font-size: 16px;
-        letter-spacing: 20px;
-    }
-
-    .point {
-        font-size: 18px;
-    }
-
-    .welcome {
-        font-size: 12px;
-        letter-spacing: 8px;
-    }
-
-    .announcement {
-        width: 95%;
-        font-size: 16px;
-        border-radius: 15px;
-    }
-
-    .announcement ul li {
-        font-size: 14px;
-    }
-}
-
 /* Responsive styles for small devices */
 @media (max-width: 520px) {
 
@@ -351,29 +321,79 @@
 }
 
 @media (max-width: 371px) {
-    .S, .SS, .C, .H, .W, .A, .N {
-        font-size: 40px;
+
+    .home-section {
+        margin-bottom: -90%;
     }
 
+    #menu-icon{
+        left: 40%;
+    }
+
+
+    .S {
+        font-size: 50px;
+        left: 19%;
+      }
+    
+      .SS {
+        font-size: 50px;
+        margin-top: 10%;
+        left: 25%;
+      }
+    
+      .C, .H, .W, .A, .N {
+        font-size: 50px;
+        top: 9%;
+        left: 35%;
+      }
+    
+      .H {
+        left: 44%;
+      }
+    
+      .W {
+        left: 55%;
+      }
+    
+      .A {
+        left: 65.3%;
+      }
+    
+      .N {
+        left: 75%;
+      }
     .TECH {
+        top: 22%;
+        left: 49%;
         font-size: 14px;
-        letter-spacing: 15px;
+        letter-spacing: 20px;
     }
 
     .point {
         font-size: 14px;
+        top: 14.3%;
+        left: 81%;
+        z-index: 3;
     }
 
     .welcome {
         font-size: 10px;
-        letter-spacing: 5px;
+        left: 40%;
+        letter-spacing: 3px;
     }
 
-    .announcement {
-        font-size: 14px;
+    .announcement{
+        top: 30%;
+        left: 2%;
+        width: 300px;
+        height: 200px;
+    }
+    .announcement-title {
+        font-size: 10px;
     }
 
     .announcement ul li {
-        font-size: 12px;
+        font-size: 10px;
     }
 }

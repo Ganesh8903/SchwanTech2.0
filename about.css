@@ -1,3 +1,4 @@
+/* General styles */
 .about-section {
   position: relative;
   text-align: center;
@@ -6,145 +7,110 @@
   padding: 0;
   margin: 0 auto;
 }
-  
-  .promo {
-    color: #efb61c;
-    margin-top: 0%;
-    bottom: 20%;
-    top: 20%;
-    left: 0;
-    padding-top: -20;
-    padding-bottom: -20;
-    margin: 0;
-    font-family: "Anton", sans-serif;
-    font-style: italic;
-    letter-spacing: 1px;
-    font-size: 80px;
-    text-shadow: 5px 5px 8px rgba(5, 22, 26, 1);
-    animation: floatText 4s infinite ease-in-out; /* Apply animation */
-    font-stretch: wider;
-  }
-  
-  .carousel {
-  
+
+.promo {
+  color: #efb61c;
+  margin-top: 0%;
+  bottom: 20%;
+  top: 20%;
   left: 0;
   padding: 0;
   margin: 0;
+  font-family: "Anton", sans-serif;
+  font-style: italic;
+  letter-spacing: 1px;
+  font-size: 80px;
+  text-shadow: 5px 5px 8px rgba(5, 22, 26, 1);
+  animation: floatText 4s infinite ease-in-out; /* Apply animation */
+  font-stretch: wider;
+}
+
+/* Horizontal Swiping Slider */
+.carousel {
   position: relative;
-  width: 1500px;
-  height: 40vw;
-  perspective: 2000px;
-  display: flex; /* Flexbox for alignment */
-  justify-content: center; /* Horizontal alignment */
-  align-items: center; /* Vertical alignment */
-  margin: 0 auto; /* Center the carousel itself in its parent container */
-  overflow: hidden; /* Prevent any content from spilling out */
-  }
-  
-  .carousel-container {
-  width: 500px;
-  height: 1000px;
-  display: flex;
-  justify-content: center; /* Center items horizontally */
+  width: 100%;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  display: flex; /* Flexbox for horizontal layout */
+  scroll-snap-type: x mandatory; /* Enable snapping */
+  gap: 20px; /* Space between slides */
+  padding: 20px 0;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for a clean look */
+}
+
+.carousel-container {
+  display: flex; /* Flexbox for horizontal layout */
   align-items: center; /* Center items vertically */
-  position: absolute;
-  /* transform-style:preserve-3d; */
-  }
-  
-  .carousel-container img {
-    position: relative;
-    width: 1000px;
-    height: 300px;
-    border-radius: 90px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    transform-origin: center;
-    transition: transform 0.5s, width 0.5s, height 0.5s;
-    z-index: 7;
-    opacity: 100%;
-  }
-  .carousel-container img.active {
-    position: absolute;
-  border: 2px solid rgba(255, 255, 255, 0.8);
-  border-radius: 100px;
-  width: 900px;
-  height: 400px;
-  z-index: 20;
-  opacity: 100;
+  justify-content: flex-start; /* Align items from the left */
+  gap: 20px; /* Space between slides */
+  padding: 20px; /* Add padding for aesthetics */
+  width: fit-content; /* Allow container to adjust width based on content */
+  transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+.carousel-container img {
+  width: 80vw; /* Adjust slide size based on viewport width */
+  max-width: 100%; /* Ensure the image never exceeds its container */
+  height: 320px; /* Fixed height */
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+  scroll-snap-align: center; /* Center the image in the viewport */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Make the center image scale and highlight */
+.carousel-container img.center {
+  transform: scale(1.1); /* Slightly scale the center image */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Add stronger shadow for emphasis */
+  z-index: 2; /* Bring the center image to the front */
+}
+
+/* Highlight hover effect */
+.carousel-container img:hover {
+  transform: scale(1.2);
+  z-index: 10; /* Slight zoom effect on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Overlay for zoomed view */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 20px;
   box-shadow: 
-  0 0 10px rgba(0, 255, 255, 0.8),
-  0 0 20px rgba(0, 255, 255, 0.6),
-  0 0 30px rgba(0, 255, 255, 0.5),
-  0 0 40px rgba(0, 255, 255, 0.4); 
-  transition: box-shadow 0.9s ease-in-out;
-  }
-  
-  /* Positioning each image in the 3D space */
-  .carousel-container img:nth-child(1) {
-    transform: rotateY(0deg) translateZ(900px); /* Increased Z distance */
-  }
-  
-  .carousel-container img:nth-child(2) {
-    transform: rotateY(60deg) translateZ(500px); /* Increased Z distance */
-  }
-  
-  .carousel-container img:nth-child(3) {
-    transform: rotateY(120deg) translateZ(400px); /* Increased Z distance */
-  }
-  
-  .carousel-container img:nth-child(4) {
-    transform: rotateY(180deg) translateZ(300px); /* Increased Z distance */
-  }
-  
-  .carousel-container img:nth-child(5) {
-    transform: rotateY(240deg) translateZ(400px); /* Increased Z distance */
-  }
-  
-  .carousel-container img:nth-child(6) {
-    transform: rotateY(300deg) translateZ(500px); /* Increased Z distance */
-  }
-  
-  
-  .carousel {
-    cursor: pointer;
-  }
-  
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3s, visibility 0.3s;
-  }
-  
-  .overlay img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 100px;
-    border: 2px solid white;
-    box-shadow: 
     0 0 10px rgba(0, 255, 255, 0.8),
     0 0 20px rgba(0, 255, 255, 0.6),
     0 0 30px rgba(0, 255, 255, 0.5),
-    0 0 40px rgba(0, 255, 255, 0.4); 
-    transition: box-shadow 0.9s ease-in-out;
-  }
-  
-  .overlay.active {
-    visibility: visible;
-    opacity: 1;
-  }
-  
-  .blurred {
-    filter: blur(50px);
-  }
+    0 0 40px rgba(0, 255, 255, 0.4);
+}
+
+.overlay.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.blurred {
+  filter: blur(50px);
+}
 
   @media (max-width: 1200px) {
     .promo {
@@ -189,28 +155,6 @@
   }
   
   
-  @media (max-width: 768px) {
-    .promo {
-      font-size: 40px;
-      text-shadow: 4px 4px 6px rgba(5, 22, 26, 1);
-    }
-  
-    .carousel {
-      width: 600px;
-      height: 70vw;
-    }
-  
-    .carousel-container img {
-      width: 600px;
-      height: 150px;
-    }
-  
-    .carousel-container img.active {
-      width: 500px;
-      height: 250px;
-    }
-  }
-  
   @media (max-width: 520px) {
     .about-section {
         position: relative;
@@ -242,23 +186,31 @@
   }
   
   @media (max-width: 371px) {
-    .promo {
-      font-size: 24px;
-      text-shadow: 2px 2px 4px rgba(5, 22, 26, 0.6);
-    }
-  
-    .carousel {
-      width: 280px;
-      height: 100vw;
-    }
-  
-    .carousel-container img {
-      width: 280px;
-      height: 80px;
-    }
-  
-    .carousel-container img.active {
-      width: 250px;
-      height: 150px;
-    }
+    .about-section {
+      position: relative;
+      height: 150px; /* Reduce the height */
+      padding: 20px 0; /* Adjust padding if needed */
+      margin-bottom: -125%; /* Remove bottom margin if any */
+  }
+
+  .promo {
+    font-size: 35px;
+    text-shadow: 3px 3px 5px rgba(5, 22, 26, 0.8);
+  }
+
+  .carousel {
+    width: 380px;
+    height: 80vw;
+  }
+
+  .carousel-container img {
+    width: 500px;
+    height: 120px;
+
+  }
+
+  .carousel-container img.active {
+    width: 200px;
+    height: 160px;
+  }
   }

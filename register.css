@@ -10,6 +10,7 @@
     color: white;
     text-align: center;
     margin-top: 400px ;
+    margin-bottom: -4%;
   }
   
   .thought{
@@ -193,3 +194,77 @@
   
   }
   
+
+  @media (max-width: 371px) {
+    .register-section {
+      padding-top: 20%;
+      margin-top: 0;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .thought {
+      top: -10%;
+      font-size: 30px;
+    }
+  
+    .hand {
+        top: 42%;
+      width: 150px;
+      transform: rotate(90deg); /* Rotates the image 90 degrees */
+      margin: 10px 0; /* Adds space between the two containers */
+      z-index: 10; /* Ensures the image is above the sections */
+    }
+  
+    .domains-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 80px;
+      width: 100%;
+      position: relative;
+    }
+  
+    .domain-box {
+      width: 90%;
+      left: 5%;
+      min-height: 250px;
+      font-size: 14px;
+      padding: 15px;
+      background-color: #000000;
+      color: #ffcc00;
+      border-radius: 15px;
+      border: 1px solid #00d4d4;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.8),
+        0 0 20px rgba(0, 255, 255, 0.6),
+        0 0 30px rgba(0, 255, 255, 0.5),
+        0 0 40px rgba(0, 255, 255, 0.4);
+    }
+  
+    .domain-box h2 {
+      font-size: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    .domain-box ul {
+      padding-left: 20px;
+    }
+  
+    .domain-box li {
+      font-size: 16px;
+    }
+  
+    .register-btn {
+      font-size: 24px;
+      width: 200px;
+      height: 50px;
+      bottom: -20px;
+    }
+  
+  }

@@ -124,7 +124,7 @@ html, body {
 
 #menu-icon{
   position: relative;
-  font-size: 3.9rem;
+  font-size: 3rem;
   color: white;
   cursor: pointer;
   display: none;
@@ -208,7 +208,7 @@ section.show-animate {
   }
   
 
-  @media (max-width:768px) {
+  @media (max-width:520px) {
 
   .header{
       background: var(--bg-color);
@@ -280,10 +280,10 @@ section.show-animate {
 
 .logo {
   height: 50px; /* Adjust as needed */
-  width: 140px; /* Set desired width */
-  height: 140px; /* Set desired height */
+  width: 110px; /* Set desired width */
+  height: 110px; /* Set desired height */
   position: absolute;
-  top: -15px; /* Distance from the top */
+  top: -8px; /* Distance from the top */
   left: -5px; /* Distance from the left */
 }
   }

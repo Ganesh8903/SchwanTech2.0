@@ -885,75 +885,6 @@ function filterByRole(role) {
     lastClickedRole = null; // Reset last clicked role
   }
 }
-
-
-
-const carousel = document.getElementById('carousel');
-const carouselContainer = document.querySelector('.carousel-container');
-const images = document.querySelectorAll('.carousel-container img');
-let currentIndex = 0;
-const totalImages = images.length;
-let startX = 0;
-let isDragging = false;
-
-// Update the carousel based on the current index
-function updateCarousel() {
-    images.forEach((img, index) => {
-        const angle = ((index - currentIndex) * (360 / totalImages)) % 360; // Circular arrangement
-        img.style.transform = `rotateY(${angle}deg) translateZ(700px)`; // Adjust `translateZ` for depth
-        img.classList.toggle('active', index === currentIndex); // Highlight the active image
-    });
-}
-
-// Handle drag start
-function handleDragStart(e) {
-    startX = e.touches ? e.touches[0].clientX : e.clientX; // Capture starting X position
-    isDragging = true;
-    carousel.style.cursor = 'grabbing';
-}
-
-// Handle drag move
-function handleDragMove(e) {
-    if (!isDragging) return;
-
-    const currentX = e.touches ? e.touches[0].clientX : e.clientX;
-    const deltaX = currentX - startX;
-
-    if (Math.abs(deltaX) > 500) { // Threshold for swipe
-        if (deltaX < 0) {
-            // Swipe left
-            currentIndex = (currentIndex + 1) % totalImages;
-        } else {
-            // Swipe right
-            currentIndex = (currentIndex - 1 + totalImages) % totalImages;
-        }
-
-        startX = currentX; // Reset startX for smoother continuous drag
-        updateCarousel();
-    }
-}
-
-// Handle drag end
-function handleDragEnd() {
-    isDragging = false;
-    carousel.style.cursor = 'grab';
-}
-
-// Attach event listeners for mouse and touch events
-carousel.addEventListener('mousedown', handleDragStart);
-carousel.addEventListener('touchstart', handleDragStart);
-
-carousel.addEventListener('mousemove', handleDragMove);
-carousel.addEventListener('touchmove', handleDragMove);
-
-carousel.addEventListener('mouseup', handleDragEnd);
-carousel.addEventListener('touchend', handleDragEnd);
-
-// Initialize carousel
-updateCarousel();
-
-
-
         const observer = new IntersectionObserver(
             (entries) => {
               const logo = document.querySelector(".logo");
@@ -965,8 +896,20 @@ updateCarousel();
                 }
               });
             },
-            { threshold: 0.2 } // Trigger when 50% of the home section is in view
+            { threshold: 0.5 } // Trigger when 50% of the home section is in view
           );
           
           observer.observe(document.querySelector("#home"));
 
+
+
+const carouselContainer = document.querySelector('.carousel-container');
+const images = document.querySelectorAll('.carousel-container img');
+
+carouselContainer.addEventListener('scroll', () => {
+  images.forEach((img) => img.classList.remove('center'));
+  const centerIndex = Math.round(
+    carouselContainer.scrollLeft / (images[0].offsetWidth + 20) // 20 = gap
+  );
+  images[centerIndex]?.classList.add('center');
+});
