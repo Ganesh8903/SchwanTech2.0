@@ -509,8 +509,6 @@ const students = [
     }
   });
   
-  
-  
   // Close modal function
   function closeModal() {
     const modal = document.getElementById("detailsModal");
@@ -571,7 +569,7 @@ const students = [
 };
   
   // Function to filter by role and then sort alphabetically by name
-  let isFiltered = false; // To track if the filter is applied
+let isFiltered = false; // To track if the filter is applied
 let lastClickedRole = null; // To track the last clicked role button
 
 function filterByRole(role) {

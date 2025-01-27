@@ -10,7 +10,7 @@
 
 .promo {
   color: #efb61c;
-  margin-top: 0%;
+    margin-top: 0%;
   bottom: 20%;
   top: 20%;
   left: 0;
@@ -28,11 +28,9 @@
 /* Horizontal Swiping Slider */
 .carousel {
   position: relative;
-  width: 100%;
-  overflow-x: auto; /* Enable horizontal scrolling */
+  width: 30%;
+  perspective: 1200px;
   display: flex; /* Flexbox for horizontal layout */
-  scroll-snap-type: x mandatory; /* Enable snapping */
-  gap: 20px; /* Space between slides */
   padding: 20px 0;
 }
 
@@ -42,6 +40,7 @@
 
 .carousel-container {
   display: flex; /* Flexbox for horizontal layout */
+  width: 10%;
   align-items: center; /* Center items vertically */
   justify-content: flex-start; /* Align items from the left */
   gap: 20px; /* Space between slides */
@@ -50,7 +49,16 @@
   transition: transform 0.3s ease-in-out; /* Smooth transition */
 }
 
-.carousel-container img {
+.carousel-item {
+  width: 430px;
+  height: 540px;
+  margin: 0 20px;
+  transform: rotateY(0deg);
+  transition: transform 0.5s ease;
+  position: relative;
+}
+
+.carousel-container video {
   width: 80vw; /* Adjust slide size based on viewport width */
   max-width: 100%; /* Ensure the image never exceeds its container */
   height: 320px; /* Fixed height */
@@ -62,15 +70,18 @@
 }
 
 /* Make the center image scale and highlight */
-.carousel-container img.center {
-  transform: scale(1.1); /* Slightly scale the center image */
+.carousel-container video.center {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Add stronger shadow for emphasis */
   z-index: 2; /* Bring the center image to the front */
 }
 
+.carousel-container:hover .carousel-item {
+  transform: rotateY(10deg);
+}
+
 /* Highlight hover effect */
-.carousel-container img:hover {
-  transform: scale(1.2);
+.carousel-container video:hover {
+
   z-index: 10; /* Slight zoom effect on hover */
   box-shadow: 
     0 0 10px rgba(0, 255, 255, 0.8),
@@ -96,7 +107,7 @@
   transition: opacity 0.3s, visibility 0.3s;
 }
 
-.overlay img {
+.overlay video {
   max-width: 90%;
   max-height: 90%;
   border-radius: 20px;
@@ -126,12 +137,12 @@
       height: 50vw;
     }
   
-    .carousel-container img {
+    .carousel-container video {
       width: 1000px;
       height: 250px;
     }
   
-    .carousel-container img.active {
+    .carousel-container video.active {
       width: 800px;
       height: 350px;
     }
@@ -147,12 +158,12 @@
       height: 60vw;
     }
   
-    .carousel-container img {
+    .carousel-container video {
       width: 800px;
       height: 200px;
     }
   
-    .carousel-container img.active {
+    .carousel-container video.active {
       width: 700px;
       height: 300px;
     }
@@ -177,13 +188,13 @@
       height: 80vw;
     }
   
-    .carousel-container img {
+    .carousel-container video {
       width: 500px;
       height: 120px;
 
     }
   
-    .carousel-container img.active {
+    .carousel-container video.active {
       width: 200px;
       height: 160px;
     }
@@ -207,13 +218,13 @@
     height: 80vw;
   }
 
-  .carousel-container img {
+  .carousel-container video {
     width: 500px;
     height: 120px;
 
   }
 
-  .carousel-container img.active {
+  .carousel-container video.active {
     width: 200px;
     height: 160px;
   }
