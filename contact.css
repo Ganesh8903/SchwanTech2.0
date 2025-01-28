@@ -135,35 +135,38 @@
   /* Modal Styling */
   /* Modal container */
  /* Modal styling */
+
+
  .modal {
-  display:none; /* Hidden by default */
+  display: none; /* Hidden by default */
   position: fixed;
-  z-index: 1000;
-  
+  top: 50%;
   left: 50%;
-  top: 45%;
-  width: 50%;
-  height: 350px;
   transform: translate(-50%, -50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px;
-  border-radius: 20px;
+  z-index: 1000;
+  width: 90%;
+  max-width: 450px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  text-align: center;
 }
+
 
 /* Modal content styling */
 .modal-content {
-  position: relative;
+  display: flex;
+  flex-direction: column;
   background: rgba(5, 22, 26, 0.8); 
   backdrop-filter: blur(10px);
-  box-shadow: 0 0 20px 8px #14c7ce;
+  box-shadow: 0 0 5px 7px #14c7ce;
   padding: 20px;
   border-radius: 10px;
   text-align: center;
-  width: 50%;
+  align-items: center;
+  width: 90%;
   height: 120%;
-  max-width: 500px;
+  max-width: 600px;
 }
 
 .modal-content h3{
@@ -276,12 +279,12 @@
 
     .photo-grid {
         grid-template-columns: repeat(3, 1fr); /* 3 images per row */
-        gap: 8px; /* Smaller gap */
+        gap: 6px; /* Smaller gap */
     }
 
     .photo-container {
         width: 120px; /* Smaller photo container */
-        height: 150px; /* Adjust height */
+        height: 140px; /* Adjust height */
     }
 
     .neon-btn {
@@ -290,8 +293,8 @@
     }
 
     .modal {
-        width: 95%; /* Full width for small screens */
-        height: auto; /* Adjust height to content */
+        width: 60%; /* Full width for small screens */
+        height: 40%; /* Adjust height to content */
         padding: 10px; /* Smaller padding */
     }
 
@@ -300,7 +303,7 @@
     }
 
     .modal-content p {
-        font-size: 16px; /* Smaller modal paragraph */
+        font-size: 15px; /* Smaller modal paragraph */
     }
 
     .modal-content img {
