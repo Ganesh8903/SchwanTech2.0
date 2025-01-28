@@ -266,5 +266,21 @@ document.addEventListener("DOMContentLoaded", () => {
       expandedVideo.src = "";
     });
   });
+
   
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const logo = document.querySelector(".logo");
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          logo.style.display = "none"; // Hide logo when home section is in view
+        } else {
+          logo.style.display = "block"; // Show logo when home section is out of view
+        }
+      });
+    },
+    { threshold: 0.2 } // Trigger when 50% of the home section is in view
+  );
+  
+  observer.observe(document.querySelector("#home"));
       
