@@ -139,7 +139,7 @@ const students = [
         role: "FUNGAMES,EVALUATION", 
         mobile: "+919345680024",
         email: "kayalvizhy.sg@gmail.com",
-        image: "FINAL/KAYAL BME.png"
+        image: "FINAL/KAYAL_BME.png"
     },
     {
         name: "Kuberalakshmi", 
@@ -271,7 +271,7 @@ const students = [
         role: "DECORATION",
         mobile: "+919500900128",
         email: "risikavadivel@gmail.com",
-        image: "FINAL/RISIKA BME.png"
+        image: "FINAL/RISIKA_BME.png"
     },
     {
         name: "Rubika", 
@@ -355,7 +355,7 @@ const students = [
         role: "HOSPITALITY",
         mobile: "+917448842171",
         email: "shivakarthibme@gmail.com",
-        image: "FINAL/SIVARANJINI BME.png"
+        image: "FINAL/SIVARANJINI_BME.png"
     },
     {
         name: "Sonaligha",
