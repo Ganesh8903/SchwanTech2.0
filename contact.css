@@ -106,6 +106,7 @@
 
 /* Photo Inside Container */
 .photo-container img {
+  filter: grayscale(100%);
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -138,12 +139,13 @@
   display:none; /* Hidden by default */
   position: fixed;
   z-index: 1000;
+  
   left: 50%;
   top: 45%;
-  width: 60%;
+  width: 50%;
   height: 350px;
   transform: translate(-50%, -50%);
-  display: flex; /* Centering content */
+  display: flex;
   justify-content: center;
   align-items: center;
   padding: 40px;
@@ -153,12 +155,14 @@
 /* Modal content styling */
 .modal-content {
   position: relative;
-  background: #05161a;
+  background: rgba(5, 22, 26, 0.8); 
+  backdrop-filter: blur(10px);
   box-shadow: 0 0 20px 8px #14c7ce;
   padding: 20px;
   border-radius: 10px;
   text-align: center;
-  width: 70%;
+  width: 50%;
+  height: 120%;
   max-width: 500px;
 }
 
@@ -172,7 +176,7 @@
 .modal-content p{
   font-family: 'Franklin Gothic Medium', 'Arial Narrow';
   letter-spacing: normal;
-  color: #ffffff;
+  color: #e7e7f0;
   font-size: 25px;
 }
 
@@ -180,10 +184,9 @@
   width: auto;
   max-width: 65%; /* Adjust image size to fit within modal */
   border-radius: 10px;
-  height: 40%; /* Maintain aspect ratio */
+  margin-top: 0;
+  height: 60%; /* Maintain aspect ratio */
 }
-
-
 
 .close-btn {
   position: absolute;
@@ -199,7 +202,6 @@
 .close-btn:hover {
   color: red;
 }
-
 
 /* Image container styling */
 .image-container img {
