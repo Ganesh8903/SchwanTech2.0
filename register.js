@@ -250,53 +250,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ContactSection
 
-const observer = new IntersectionObserver(
-    (entries) => {
-      const logo = document.querySelector(".logo");
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          logo.style.display = "none"; // Hide logo when home section is in view
-        } else {
-          logo.style.display = "block"; // Show logo when home section is out of view
-        }
-      });
-    },
-    { threshold: 0.5 } // Trigger when 50% of the home section is in view
-  );
+document.addEventListener("DOMContentLoaded", () => {
+    const mainVideo = document.getElementById("main-video");
+    const overlay = document.getElementById("overlay");
+    const expandedVideo = document.getElementById("expanded-video");
   
-  observer.observe(document.querySelector("#home"));
+    mainVideo.addEventListener("click", () => {
+      expandedVideo.src = mainVideo.querySelector("source").src;
+      overlay.classList.add("active");
+    });
   
-  const carouselContainer = document.querySelector('.carousel-container');
-  const images = document.querySelectorAll('.carousel-container img');
-  const videoContainer = document.querySelector('.video-container'); // Add container for the video
-  const videoElement = document.querySelector('#video'); // Add the video element
-  
-  carouselContainer.addEventListener('scroll', () => {
-    images.forEach((img) => img.classList.remove('center'));
-    const centerIndex = Math.round(
-      carouselContainer.scrollLeft / (images[0].offsetWidth + 20) // 20 = gap
-    );
-    images[centerIndex]?.classList.add('center');
-  });
-  
-  // Event listener for image clicks to play video in full screen
-  images.forEach((img, index) => {
-    img.addEventListener('click', () => {
-      const videoSrc = img.getAttribute('data-video-src'); // Get video source from data attribute
-      if (videoSrc) {
-        videoElement.src = videoSrc; // Set the video source
-        videoContainer.style.display = 'block'; // Show the video container
-        videoElement.play(); // Start playing the video
-        if (videoElement.requestFullscreen) {
-          videoElement.requestFullscreen(); // Go full screen
-        } else if (videoElement.mozRequestFullScreen) { // Firefox
-          videoElement.mozRequestFullScreen();
-        } else if (videoElement.webkitRequestFullscreen) { // Chrome, Safari
-          videoElement.webkitRequestFullscreen();
-        } else if (videoElement.msRequestFullscreen) { // IE/Edge
-          videoElement.msRequestFullscreen();
-        }
-      }
+    overlay.addEventListener("click", () => {
+      overlay.classList.remove("active");
+      expandedVideo.pause();
+      expandedVideo.src = "";
     });
   });
+  
       

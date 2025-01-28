@@ -522,7 +522,7 @@ html, body {
 }
 
 /* For screens smaller than 371px */
-@media (max-width: 371px) {
+@media (max-width: 380px) {
   .year1, .year2, .year3 {
     top: 200px;
     margin-top: 25%;
