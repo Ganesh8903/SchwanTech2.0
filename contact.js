@@ -453,7 +453,6 @@ const students = [
             // Populate modal content
             modalName.textContent = `${student.name}`;
             modalEmail.textContent = `${student.email}`;
-            modalMobile.textContent = `${student.mobile}`;
             modalImage.src = student.image;
             modalImage.alt = student.name;
             modalImage.style.visibility = "visible";
