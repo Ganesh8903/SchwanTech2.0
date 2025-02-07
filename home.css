@@ -15,6 +15,36 @@
     margin-bottom: -100px;
 }
 
+.click-button {
+    background-color: #f6cf62; /* Gold color matching other elements */
+    color: black;
+    border: 2px solid #efb61c;
+    padding: 8px 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 
+        0 0 10px rgba(239, 182, 28, 0.8),
+        0 0 20px rgba(239, 182, 28, 0.6),
+        0 0 30px rgba(239, 182, 28, 0.5);
+    transition: all 0.3s ease-in-out;
+}
+
+.click-button:hover {
+    background-color: #000; /* Black background on hover */
+    color: #efb61c;
+    border-color: #efb61c;
+    box-shadow: 
+        0 0 10px rgba(0, 255, 255, 0.8),
+        0 0 20px rgba(0, 255, 255, 0.6),
+        0 0 30px rgba(0, 255, 255, 0.5),
+        0 0 40px rgba(0, 255, 255, 0.4); /* Cyan glow effect */
+}
+
+
+
 /* Specific styles for each letter */
 .S, .SS, .C, .H, .W, .A, .N {
     position: absolute;
@@ -235,7 +265,7 @@
     }
 
     .announcement ul li {
-        font-size: 16px;
+        font-size: 14px;
     }
 }
 
@@ -318,6 +348,10 @@
     .announcement ul li {
         font-size: 10px;
     }
+    .click-button {
+        font-size: 10px;
+        padding: 6px 8px;
+    }
 }
 
 @media (max-width: 371px) {
@@ -390,10 +424,16 @@
         height: 200px;
     }
     .announcement-title {
-        font-size: 10px;
+        font-size: 9px;
     }
 
     .announcement ul li {
-        font-size: 10px;
+        font-size: 9px;
+    }
+
+
+    .click-button {
+        font-size: 9px;
+        padding: 5px 7px;
     }
 }
